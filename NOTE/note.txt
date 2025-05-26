@@ -1,0 +1,39 @@
+PHP
+
+Laravel
+
+Autenticazione con Google di laravel 
+
+Modulo di stripe 
+
+Api rest 
+
+E infine di pensare ad un tema esteticamente carino online per vender programma libri 
+
+E ti devo dire che il motore è già tutto sviluppato
+
+https://api.vibesrl.com/docs#/
+https://github.com/arditriheru/Login-With-Google-Laravel-9
+
+
+ho cambiato la porta da 80 a 8080 nel config
+http://localhost:8080/hallophp/
+http://localhost:8080/Login-With-Google-Laravel-9-master/
+http://localhost:8080/Login-With-Google-Laravel-9-master/public/
+
+
+16.09 -->1
+
+per lanciarlo: uso lavarel (non apachi)... deve stare aperto il cmd...
+
+C:\Users\crist>cd kdpBooksAI
+
+avvia il server integrato di laravel...
+C:\Users\crist\kdpBooksAI>php artisan serve
+
+   INFO  Server running on [http://127.0.0.1:8000].
+
+  Press Ctrl+C to stop the server
+
+sto usando: Laravel Framework 12.15.0
+ 
