@@ -10,8 +10,8 @@
     <h1 class="text-xl font-bold text-gray-800">BookAI</h1>
     <div>
 
-        <a href="{{ route('login') }}" class="mr-4 text-blue-600 hover:underline">Login</a>
-        <a href="{{ route('register') }}" class="text-blue-600 hover:underline">Registrati</a>
+        <a href="{{ route('loginnn') }}" class="mr-4 text-blue-600 hover:underline">Login</a>
+        <a href="{{ route('registerrr') }}" class="text-blue-600 hover:underline">Registrati</a>
     </div>
 </header>
 <main class="text-center py-20 px-4">

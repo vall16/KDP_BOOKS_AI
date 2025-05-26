@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>KDP Books AI</title>
-		<h1>Hello Laravel!</h1>
 
 
         <!-- Fonts -->

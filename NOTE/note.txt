@@ -36,4 +36,13 @@ C:\Users\crist\kdpBooksAI>php artisan serve
   Press Ctrl+C to stop the server
 
 sto usando: Laravel Framework 12.15.0
+
+per autenticazione google conviene:
+Usare Laravel Breeze + Laravel Socialite
+È la combinazione più leggera, flessibile e integrata nell’ecosistema Laravel. Ecco come farlo nel modo "unico" e solido.
+ora mostra login/register... vanno linkati a google
+
+git add . && git commit -m "login/register, breeze socialite" && git push
+
+
  
