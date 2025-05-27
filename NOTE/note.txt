@@ -26,7 +26,7 @@ http://localhost:8080/Login-With-Google-Laravel-9-master/public/
 
 per lanciarlo: uso lavarel (non apachi)... deve stare aperto il cmd...
 
-C:\Users\crist>cd kdpBooksAI
+C:\Users\crist>cd kdpBooksAI && php artisan serve
 
 avvia il server integrato di laravel...
 C:\Users\crist\kdpBooksAI>php artisan serve
@@ -36,6 +36,7 @@ C:\Users\crist\kdpBooksAI>php artisan serve
   Press Ctrl+C to stop the server
 
 sto usando: Laravel Framework 12.15.0
+sto usando: Laravel Breeze + Laravel Socialite
 
 per autenticazione google conviene:
 Usare Laravel Breeze + Laravel Socialite
