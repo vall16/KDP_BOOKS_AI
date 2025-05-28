@@ -34,7 +34,7 @@
     </div>
 </main>
 <footer class="text-center py-6 text-gray-500 text-sm">
-    &copy; 2025 BookAI. Tutti i diritti riservati.
+    &copy; 2025 Vibe srl. Tutti i diritti riservati.
 </footer>
 </body>
 </html>
