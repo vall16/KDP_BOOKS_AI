@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 
+use App\Http\Controllers\BookController;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +20,9 @@ Route::get('/sell', function () {
     return view('sell');
 });
 // ->middleware(['auth', 'verified'])->name('sell');
+Route::get('/crea-libro', [BookController::class, 'create'])->name('crea.libro');
+
+Route::post('/genera-libro', [BookController::class, 'generate'])->name('book.generate');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
