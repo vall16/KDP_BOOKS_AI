@@ -20,10 +20,18 @@ Route::get('/sell', function () {
     return view('sell');
 })->name('sell');
 
+
 // ->middleware(['auth', 'verified'])->name('sell');
 Route::get('/crea-libro', [BookController::class, 'create'])->name('crea.libro');
 
+// Route::post('/genera-libro', [BookController::class, 'generate'])->name('book.generate');
+// Route::post('/book/generate', [BookController::class, 'generate'])->name('book.generate');
+
+
+Route::get('/crea-libro', [BookController::class, 'create'])->name('book.create');
+//creazione del libro ...
 Route::post('/genera-libro', [BookController::class, 'generate'])->name('book.generate');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

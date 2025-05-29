@@ -40,5 +40,10 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
 
+    'vibes_api' => [
+        'token' => env('API_TOKEN'),
+    ],
+
+
 
 ];
