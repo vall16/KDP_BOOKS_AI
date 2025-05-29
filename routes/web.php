@@ -18,7 +18,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/sell', function () {
     return view('sell');
-});
+})->name('sell');
+
 // ->middleware(['auth', 'verified'])->name('sell');
 Route::get('/crea-libro', [BookController::class, 'create'])->name('crea.libro');
 
