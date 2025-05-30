@@ -39,4 +39,19 @@ class DashboardController extends Controller
         }
     }
 
+    public function getBookDetails($id)
+    {
+        $response = Http::withHeaders([
+            'accept' => 'application/json',
+            'Authorization' => 'Bearer ' . config('services.vibes_api.token'),
+        ])->get("https://api.vibesrl.com/book/{$id}");
+
+        if ($response->successful()) {
+            return response()->json($response->json());
+        } else {
+            return response()->json(['error' => 'Libro non trovato'], 404);
+        }
+    }
+
+
 }

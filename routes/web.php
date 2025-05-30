@@ -50,6 +50,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->name('dashboard');
 
 Route::get('/download-book/{id}', [DashboardController::class, 'downloadBook'])->middleware(['auth']);
+// Per web.php (attenzione a middleware auth)
+Route::get('/api/books/{id}', [DashboardController::class, 'getBookDetails'])
+    ->middleware('auth');
+
 
 
 
