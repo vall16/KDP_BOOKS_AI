@@ -3,8 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
-
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\DashboardController;
 
 
 
@@ -42,6 +42,13 @@ Route::middleware('auth')->group(function () {
 // autenticazione google da Login
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboard');
+
 
 
 require __DIR__.'/auth.php';

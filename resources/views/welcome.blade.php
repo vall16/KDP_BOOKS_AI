@@ -53,9 +53,7 @@
         </header>
         <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
             <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
-                <!-- <div class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-                    <h1 class="mb-1 font-medium">KDP Books AI</h1>
-                    <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">La piattaforma intelligente per creare, impaginare e pubblicare libri in pochi minuti.  <br>Grazie all'AI generativa, puoi trasformare idee in contenuti pronti per KDP Amazon, senza competenze tecniche.</p> -->
+                
                     <div class="text-sm leading-relaxed flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0_0_0_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0_0_0_1px_#fffaed2d] rounded-bl-2xl rounded-br-2xl lg:rounded-tl-2xl lg:rounded-br-none transition-all duration-300">
                     <h1 class="mb-3 text-2xl font-semibold text-[#1c1c1b] dark:text-white tracking-tight">🚀 KDP Books AI</h1>
                     <p class="mb-4 text-[#4a4a49] dark:text-[#B0AFA9] text-base leading-7">
