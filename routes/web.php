@@ -49,6 +49,9 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard');
 
+Route::get('/download-book/{id}', [DashboardController::class, 'downloadBook'])->middleware(['auth']);
+
+
 
 
 require __DIR__.'/auth.php';

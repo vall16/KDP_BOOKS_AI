@@ -56,30 +56,6 @@ class BookController extends Controller
         }
     }
 
-
-    public function userBooks_old(Request $request)
-    {
-        // Email utente, da parametro GET o hardcoded per test
-        $email = $request->query('email', 'wvallone@gmail.com');
-
-        // Codifica dell'email per l'URL
-        $encodedEmail = urlencode($email);
-
-        // Chiamata all'API
-        $response = Http::withHeaders([
-            'accept' => 'application/json',
-            'Authorization' => 'Bearer ' . config('services.vibes_api.token'), // Inserisci il token nel file di config
-        ])->get("https://api.vibesrl.com/user_books?user_id={$encodedEmail}");
-
-        // Controlla la risposta
-        if ($response->successful()) {
-            $books = $response->json();
-            return view('libri-utente', compact('books', 'email')); // Crea una view per mostrare i risultati
-        } else {
-            return back()->withErrors(['api_error' => 'Errore recupero libri: ' . $response->body()]);
-        }
-    }
-
     public function userBooks(string $email)
     {
         // Codifica dell'email per l'URL

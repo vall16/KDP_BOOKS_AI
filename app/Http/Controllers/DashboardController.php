@@ -22,4 +22,21 @@ class DashboardController extends Controller
 
         return view('dashboard', compact('user', 'books'));
     }
+
+    public function downloadBook($id)
+    {
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . config('services.vibes_api.token'),
+            'accept' => 'application/pdf',
+        ])->get("https://api.vibesrl.com/download/{$id}");
+
+        if ($response->successful()) {
+            return response($response->body(), 200)
+                ->header('Content-Type', 'application/pdf')
+                ->header('Content-Disposition', 'attachment; filename="libro_{$id}.pdf"');
+        } else {
+            return back()->withErrors(['download_error' => 'Errore durante il download del file']);
+        }
+    }
+
 }

@@ -25,8 +25,14 @@
                                         <td class="px-4 py-2">{{ $book['author_name'] }}</td>
                                         <td class="px-4 py-2">{{ $book['book_language'] }}</td>
                                         <td class="px-4 py-2">
-                                            @if ($book['ready'] && $book['filename'])
-                                                <a href="https://api.vibesrl.com/storage/generated_books/{{ $book['filename'] }}" class="text-blue-500 underline" target="_blank">Scarica PDF</a>
+                                            @if ($book['processed'] && $book['filename'])
+                                                
+                                                <!-- <a href="{{ url('/download-book/' . $book['id']) }}" target="_blank">Scarica PDF</a> -->
+                                                <a href="{{ url('/download-book/' . $book['id']) }}" target="_blank" title="Scarica PDF">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-600 hover:text-red-800" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M6 2a2 2 0 0 0-2 2v16c0 1.103.897 2 2 2h12a2 2 0 0 0 2-2V8.414A1.99 1.99 0 0 0 19.586 7L15 2.414A1.99 1.99 0 0 0 13.586 2H6zm7 1.414L18.586 9H14a1 1 0 0 1-1-1V3.414zM8 13h1.5a1.5 1.5 0 0 1 0 3H8v-3zm3 0h1v3h-1v-3zm2.5 0H15a1 1 0 0 1 0 2h-1v1h-1.5v-3z"/>
+                                                    </svg>
+                                                </a>
                                             @else
                                                 Non pronto
                                             @endif
