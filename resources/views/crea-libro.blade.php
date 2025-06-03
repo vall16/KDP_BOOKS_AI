@@ -22,7 +22,9 @@
       Hai scelto il <strong>Pacchetto: {{ ucfirst($pack) }}</strong>
     </p>
 
-    <form method="POST" action="{{ route('book.generate') }}">
+    <!-- <form method="POST" action="{{ route('book.generate') }}"> metodo iniziale senza pagamento-->
+    <form method="POST" action="{{ route('book.startCheckout') }}">
+
       @csrf
       <input type="hidden" name="pack" value="{{ $pack }}" />
 
@@ -70,6 +72,7 @@
       <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
         Acquista e Genera Libro
       </button>
+   
     </form>
   </div>
 </x-app-layout>

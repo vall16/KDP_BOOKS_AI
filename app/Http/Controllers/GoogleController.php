@@ -28,7 +28,11 @@ class GoogleController extends Controller
 
         Auth::login($user);
 
-        return redirect('/dashboard'); // o dove vuoi
+        // originale
+        // return redirect('/dashboard'); // o dove vuoi
+
+        //  Dopo login, reindirizza al pagamento: PAGAMENTO !!
+        return redirect()->route('stripe.checkout');
     }
 }
 

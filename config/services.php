@@ -43,6 +43,11 @@ return [
     'vibes_api' => [
         'token' => env('API_TOKEN'),
     ],
+    
+    'stripe' => [
+    'secret' => env('STRIPE_SECRET'),
+    ],
+
 
 
 

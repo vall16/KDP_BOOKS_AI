@@ -76,5 +76,36 @@ class BookController extends Controller
         }
     }
 
+    //x pagamento stripe
+    public function startCheckout(Request $request)
+    {
+        $validated = $request->validate([
+            'user_email' => 'required|email',
+            'author_name' => 'required|string',
+            'book_title' => 'required|string',
+            'book_description' => 'required|string',
+            'book_language' => 'required|string',
+            'min_chapters' => 'required|integer|min:1',
+            'min_words_per_chapter' => 'required|integer|min:1',
+            'pack' => 'required|string'
+        ]);
+
+        session(['book_data' => $validated]);
+
+        // Se non loggato, vai a Google login
+        if (!auth()->check()) {
+            return redirect()->route('auth.google');
+        }
+
+        return redirect()->route('stripe.checkout');
+    }
+
+    public function complete()
+    {
+        // Esempio: mostra una pagina di conferma
+        return view('books.complete');
+    }
+
+
 
 }
