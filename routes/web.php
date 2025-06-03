@@ -36,8 +36,8 @@ Route::middleware('auth')->group(function () {
 });
 
 // autenticazione google da Login
-// Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+//callback dopo l'auth google
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 
