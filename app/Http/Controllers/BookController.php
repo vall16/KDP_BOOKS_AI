@@ -103,7 +103,7 @@ class BookController extends Controller
     public function complete()
     {
         // Esempio: mostra una pagina di conferma
-        return view('books.complete');
+        return view('bookscomplete');
     }
 
 
