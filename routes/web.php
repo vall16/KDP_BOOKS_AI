@@ -22,8 +22,6 @@ Route::get('/sell', function () {
 })->name('sell');
 
 
-// ->middleware(['auth', 'verified'])->name('sell');
-// Route::get('/crea-libro', [BookController::class, 'create'])->name('crea.libro');
 Route::get('/crea-libro', [BookController::class, 'create'])->name('book.create');
 //creazione del libro ...
 Route::post('/genera-libro', [BookController::class, 'generate'])->name('book.generate');

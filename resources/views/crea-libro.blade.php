@@ -3,9 +3,9 @@
     <div class="mb-4 p-4 rounded bg-green-100 text-green-800 border border-green-300">
         {{ session('success') }}
     </div>
-@endif
+  @endif
 
-@if ($errors->any())
+  @if ($errors->any())
     <div class="mb-4 p-4 rounded bg-red-100 text-red-800 border border-red-300">
         <ul class="list-disc pl-5">
             @foreach ($errors->all() as $error)
@@ -13,22 +13,26 @@
             @endforeach
         </ul>
     </div>
-@endif
+  @endif
 
   <div class="max-w-6xl mx-auto mt-12 p-6 bg-white rounded-lg shadow">
     <h1 class="text-2xl font-bold mb-6">📚 Creazione Libro</h1>
 
     <p class="mb-6">
-      Hai scelto il <strong>Pacchetto: {{ ucfirst($pack) }}</strong>
+      Hai scelto il <strong>Pacchetto: {{ $pacchetto['nome'] }}</strong> <br>
+      Prezzo: <strong>€{{ number_format($pacchetto['prezzo'], 2, ',', '.') }}</strong>
     </p>
 
-    <!-- <form method="POST" action="{{ route('book.generate') }}"> metodo iniziale senza pagamento-->
     <form method="POST" action="{{ route('book.startCheckout') }}">
-
       @csrf
-      <input type="hidden" name="pack" value="{{ $pack }}" />
+      <!-- Passa solo il codice pacchetto nascosto nel form -->
+      <!-- <input type="hidden" name="pack" value="{{ request()->query('pack') }}" /> -->
+      <!-- <input type="hidden" name="pack" value="{{ array_search($pacchetto, config('pacchetti')) }}"> -->
+      <input type="hidden" name="pack" value="{{ $packCode }}">
 
-      <!-- Prima riga di campi -->
+
+
+      <!-- Campi utente -->
       <div class="flex flex-wrap -mx-3 mb-4">
         <div class="w-full sm:w-1/3 px-3 mb-4 sm:mb-0">
           <label for="user_email" class="block mb-1 font-semibold">Email Utente</label>
@@ -46,7 +50,7 @@
         </div>
       </div>
 
-      <!-- Seconda riga di campi -->
+      <!-- Altri campi -->
       <div class="flex flex-wrap -mx-3 mb-4">
         <div class="w-full sm:w-1/2 px-3 mb-4 sm:mb-0">
           <label for="book_description" class="block mb-1 font-semibold">Descrizione / Idee</label>
@@ -72,7 +76,6 @@
       <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
         Acquista e Genera Libro
       </button>
-   
     </form>
   </div>
 </x-app-layout>
