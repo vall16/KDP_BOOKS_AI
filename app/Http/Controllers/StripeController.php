@@ -16,7 +16,7 @@ class StripeController extends Controller
         try {
             $bookData = session('book_data');
 
-            Log::info('PACCHETTO STRIPE', ['pack' => session('book_data.pack')]);
+            Log::info('PACCHETTO STRIPE', ['pack' => $bookData['pack']]);
 
             if (!$bookData) {
                 return redirect()->route('book.create')->withErrors('Sessione scaduta.');
@@ -36,6 +36,9 @@ class StripeController extends Controller
 
             Stripe::setApiKey(config('services.stripe.secret'));
 
+            $prezzoCentesimi = (int) round($pacchetto['prezzo'] * 100);
+
+
             $checkout = StripeSession::create([
                 'line_items' => [[
                     'price_data' => [
@@ -43,7 +46,7 @@ class StripeController extends Controller
                         'product_data' => [
                             'name' => 'Creazione Libro - Pacchetto ' . $pacchetto['nome'],
                         ],
-                        'unit_amount' => 1200
+                        'unit_amount' => $prezzoCentesimi
                     ],
                     'quantity' => 1,
                 ]],

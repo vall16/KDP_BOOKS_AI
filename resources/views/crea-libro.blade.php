@@ -1,4 +1,10 @@
 <x-app-layout>
+    @if (isset($packCode))
+  <script>
+    alert("Hai selezionato il pacchetto: {{ $packCode }}");
+  </script>
+@endif
+
   @if (session('success'))
     <div class="mb-4 p-4 rounded bg-green-100 text-green-800 border border-green-300">
         {{ session('success') }}
@@ -21,6 +27,7 @@
     <p class="mb-6">
       Hai scelto il <strong>Pacchetto: {{ $pacchetto['nome'] }}</strong> <br>
       Prezzo: <strong>€{{ number_format($pacchetto['prezzo'], 2, ',', '.') }}</strong>
+      Packcode: <strong>{{ $packCode }}</strong>
     </p>
 
     <form method="POST" action="{{ route('book.startCheckout') }}">

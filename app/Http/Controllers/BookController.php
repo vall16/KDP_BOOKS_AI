@@ -120,42 +120,45 @@ class BookController extends Controller
     // }
 
     public function startCheckout(Request $request)
-{
-    $validated = $request->validate([
-        'user_email' => 'required|email',
-        'author_name' => 'required|string',
-        'book_title' => 'required|string',
-        'book_description' => 'required|string',
-        'book_language' => 'required|string',
-        'min_chapters' => 'required|integer|min:1',
-        'min_words_per_chapter' => 'required|integer|min:1',
-        'pack' => 'required|string|in:base,plus,premium',
-    ]);
+    {
+        $validated = $request->validate([
+            'user_email' => 'required|email',
+            'author_name' => 'required|string',
+            'book_title' => 'required|string',
+            'book_description' => 'required|string',
+            'book_language' => 'required|string',
+            'min_chapters' => 'required|integer|min:1',
+            'min_words_per_chapter' => 'required|integer|min:1',
+            'pack' => 'required|string|in:base,plus,premium',
+        ]);
 
-    // Recupera i dati completi del pacchetto scelto
-    $packCode = $validated['pack'];
-    $pacchetti = config('pacchetti');
+        // Recupera i dati completi del pacchetto scelto
+        // Log::info('PACCHETTO STRIPE', ['pack' => $bookData['pack']]);
+        $packCode = $validated['pack'];
+        $pacchetti = config('pacchetti');
 
-    if (!array_key_exists($packCode, $pacchetti)) {
-        return redirect()->back()->withErrors(['pack' => 'Pacchetto non valido']);
+        if (!array_key_exists($packCode, $pacchetti)) {
+            return redirect()->back()->withErrors(['pack' => 'Pacchetto non valido']);
+        }
+
+        $packData = $pacchetti[$packCode];
+
+        // Salva tutto in sessione
+        if (!session()->has('book_data')) {
+            session(['book_data' => array_merge($validated, [
+                'prezzo' => $packData['prezzo'],
+                'nome_pacchetto' => $packData['nome'],
+                'descrizione_pacchetto' => $packData['descrizione'],
+            ])]);
+        }
+
+        // Se non loggato, vai a Google login
+        // if (!auth()->check()) {
+        //     return redirect()->route('auth.google');
+        // }
+
+        return redirect()->route('stripe.checkout');
     }
-
-    $packData = $pacchetti[$packCode];
-
-    // Salva tutto in sessione
-    session(['book_data' => array_merge($validated, [
-        'prezzo' => $packData['prezzo'],
-        'nome_pacchetto' => $packData['nome'],
-        'descrizione_pacchetto' => $packData['descrizione'],
-    ])]);
-
-    // Se non loggato, vai a Google login
-    if (!auth()->check()) {
-        return redirect()->route('auth.google');
-    }
-
-    return redirect()->route('stripe.checkout');
-}
 
 
     public function complete()
