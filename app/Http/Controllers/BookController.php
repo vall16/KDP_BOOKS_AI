@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
+
 
 class BookController extends Controller
 {
@@ -29,8 +31,6 @@ class BookController extends Controller
         return view('crea-libro', compact('pacchetto', 'packCode'));
 
     }
-
-
 
 
    public function generate(Request $request)
@@ -95,29 +95,6 @@ class BookController extends Controller
         }
     }
 
-    //x pagamento stripe
-    // public function startCheckout(Request $request)
-    // {
-    //     $validated = $request->validate([
-    //         'user_email' => 'required|email',
-    //         'author_name' => 'required|string',
-    //         'book_title' => 'required|string',
-    //         'book_description' => 'required|string',
-    //         'book_language' => 'required|string',
-    //         'min_chapters' => 'required|integer|min:1',
-    //         'min_words_per_chapter' => 'required|integer|min:1',
-    //         'pack' => 'required|string'
-    //     ]);
-
-    //     session(['book_data' => $validated]);
-
-    //     // Se non loggato, vai a Google login
-    //     if (!auth()->check()) {
-    //         return redirect()->route('auth.google');
-    //     }
-
-    //     return redirect()->route('stripe.checkout');
-    // }
 
     public function startCheckout(Request $request)
     {
@@ -143,21 +120,28 @@ class BookController extends Controller
 
         $packData = $pacchetti[$packCode];
 
-        // Salva tutto in sessione
-        if (!session()->has('book_data')) {
-            session(['book_data' => array_merge($validated, [
-                'prezzo' => $packData['prezzo'],
-                'nome_pacchetto' => $packData['nome'],
-                'descrizione_pacchetto' => $packData['descrizione'],
-            ])]);
+        //DATI SALVATI TEMPORANEAMENTE IN CACHE CON UN TOKEN
+        $token = Str::uuid()->toString();
+
+        // Log::info($token);
+
+        cache()->put("book_data_$token", array_merge($validated, [
+            'prezzo' => $packData['prezzo'],
+            'nome_pacchetto' => $packData['nome'],
+            'descrizione_pacchetto' => $packData['descrizione'],
+        ]), now()->addMinutes(15));
+
+        session(['temp_token' => $token]);
+
+        //prova token
+        if (!auth()->check()) {
+            //autenticazione google con token per dati di sessione
+            return redirect()->route('auth.google', ['token' => $token]);
         }
 
-        // Se non loggato, vai a Google login
-        // if (!auth()->check()) {
-        //     return redirect()->route('auth.google');
-        // }
+        // indirizzamento a stripe con dati di sessione
+        return redirect()->route('stripe.checkout', ['token' => $token]);
 
-        return redirect()->route('stripe.checkout');
     }
 
 

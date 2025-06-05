@@ -2,14 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Socialite;
+use Illuminate\Http\Request;
+use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class GoogleController extends Controller
 {
-    public function redirectToGoogle()
+    public function redirect(Request $request)
     {
+        \Log::info('✳️ Entrato in GoogleController@redirect');
+
+        $token = $request->query('token');
+
+        if ($token) {
+            session(['google_login_token' => $token]);
+        }
+
         return Socialite::driver('google')->redirect();
     }
 
@@ -19,20 +28,19 @@ class GoogleController extends Controller
 
         $user = User::firstOrCreate(
             ['email' => $googleUser->getEmail()],
-            [
-                'name' => $googleUser->getName(),
-                'google_id' => $googleUser->getId(),
-                'password' => bcrypt(uniqid()) // solo se necessario
-            ]
+            ['name' => $googleUser->getName()]
         );
 
         Auth::login($user);
 
-        // originale
-        // return redirect('/dashboard'); // o dove vuoi
+        // Recupera il token salvato prima del login
+        $token = session('google_login_token');
 
-        //  Dopo login, reindirizza al pagamento: PAGAMENTO !!
-        return redirect()->route('stripe.checkout');
+        if ($token) {
+            //passo il token a STRIPE
+            return redirect()->route('stripe.checkout', ['token' => $token]);
+        }
+
+        return redirect('/'); // fallback generico
     }
 }
-

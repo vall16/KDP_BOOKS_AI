@@ -1,9 +1,9 @@
 <x-app-layout>
-    @if (isset($packCode))
+    <!-- @if (isset($packCode))
   <script>
     alert("Hai selezionato il pacchetto: {{ $packCode }}");
   </script>
-@endif
+@endif -->
 
   @if (session('success'))
     <div class="mb-4 p-4 rounded bg-green-100 text-green-800 border border-green-300">
@@ -27,14 +27,12 @@
     <p class="mb-6">
       Hai scelto il <strong>Pacchetto: {{ $pacchetto['nome'] }}</strong> <br>
       Prezzo: <strong>€{{ number_format($pacchetto['prezzo'], 2, ',', '.') }}</strong>
-      Packcode: <strong>{{ $packCode }}</strong>
+      <!-- Packcode: <strong>{{ $packCode }}</strong> -->
     </p>
 
     <form method="POST" action="{{ route('book.startCheckout') }}">
       @csrf
-      <!-- Passa solo il codice pacchetto nascosto nel form -->
-      <!-- <input type="hidden" name="pack" value="{{ request()->query('pack') }}" /> -->
-      <!-- <input type="hidden" name="pack" value="{{ array_search($pacchetto, config('pacchetti')) }}"> -->
+      
       <input type="hidden" name="pack" value="{{ $packCode }}">
 
 
