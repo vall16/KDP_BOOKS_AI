@@ -9,18 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class GoogleController extends Controller
 {
-    public function redirect(Request $request)
-    {
-        \Log::info('✳️ Entrato in GoogleController@redirect');
+    //originale
+    // public function redirect(Request $request)
+    // {
+    //     \Log::info('✳️ Entrato in GoogleController@redirect');
 
-        $token = $request->query('token');
+    //     $token = $request->query('token');
 
-        if ($token) {
-            session(['google_login_token' => $token]);
-        }
+    //     if ($token) {
+    //         session(['google_login_token' => $token]);
+    //     }
 
-        return Socialite::driver('google')->redirect();
-    }
+    //     return Socialite::driver('google')->redirect();
+    // }
 
     public function redirect2(Request $request)
     {
@@ -39,27 +40,28 @@ class GoogleController extends Controller
     }
 
 
-    public function handleGoogleCallback()
-    {
-        $googleUser = Socialite::driver('google')->stateless()->user();
+    //originale
+    // public function handleGoogleCallback()
+    // {
+    //     $googleUser = Socialite::driver('google')->stateless()->user();
 
-        $user = User::firstOrCreate(
-            ['email' => $googleUser->getEmail()],
-            ['name' => $googleUser->getName()]
-        );
+    //     $user = User::firstOrCreate(
+    //         ['email' => $googleUser->getEmail()],
+    //         ['name' => $googleUser->getName()]
+    //     );
 
-        Auth::login($user);
+    //     Auth::login($user);
 
-        // Recupera il token salvato prima del login
-        $token = session('google_login_token');
+    //     // Recupera il token salvato prima del login
+    //     $token = session('google_login_token');
 
-        if ($token) {
-            //passo il token a STRIPE
-            return redirect()->route('stripe.checkout', ['token' => $token]);
-        }
+    //     if ($token) {
+    //         //passo il token a STRIPE
+    //         return redirect()->route('stripe.checkout', ['token' => $token]);
+    //     }
 
-        return redirect('/'); // fallback generico
-    }
+    //     return redirect('/'); // fallback generico
+    // }
 
     //callback paramterizzato...
     public function handleGoogleCallback2()
@@ -87,7 +89,7 @@ class GoogleController extends Controller
             case 'dashboard':
                 return redirect()->route('dashboard');
             case 'login-only':
-                return redirect('/')->with('success', 'Login effettuato!');
+                return redirect('/sell')->with('success', 'Login effettuato!');
             default:
                 return redirect('/');
         }

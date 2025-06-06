@@ -29,9 +29,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('auth.google');
+// originale
+// Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('auth.google');
+// //questa route di call back è chiamata da google socialite
+// Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+Route::get('/auth/google', [GoogleController::class, 'redirect2'])->name('auth.google');
 //questa route di call back è chiamata da google socialite
-Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback2']);
 //flusso stripe...
 Route::get('/stripe/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
 

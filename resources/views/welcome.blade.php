@@ -27,13 +27,16 @@
                             Dashboard
                         </a>
                     @else
-                        <a
-                            href="{{ url('auth/google') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
-                        >
+                    <!-- /auth/google?next_action=login-only -->
+                        <!-- <a  href="{{ url('auth/google') }}"
+                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal">
                             Log in con Google
                             
+                        </a> -->
+                        <a href="{{ route('auth.google', ['next_action' => 'login-only']) }}">
+                            Login con Google 
                         </a>
+
 
                         @if (Route::has('register'))
                             <a
