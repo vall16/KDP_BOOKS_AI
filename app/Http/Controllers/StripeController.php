@@ -39,9 +39,6 @@ class StripeController extends Controller
         
         }
 
-
-        
-
         // Prendi il pacchetto scelto
         $packCode = $bookData['pack'];
         $pacchetti = config('pacchetti');
@@ -68,13 +65,10 @@ class StripeController extends Controller
             ]],
             'mode' => 'payment',
 
-            //originale...
-            // 'success_url' => route('book.complete'),
             //se ha successo passo il token
-            // 'success_url' => route('book.complete', ['token' => $token]),
             'success_url' => route('book.complete', ['token' => $request->query('token')]),
 
-
+             // se non ha successo, cambio rotta   
             'cancel_url' => route('book.cancel'),
         ]);
 
@@ -82,7 +76,9 @@ class StripeController extends Controller
 
     } catch (\Exception $e) {
         Log::error('Errore Stripe: ' . $e->getMessage());
-        return redirect()->route('book.create')->withErrors('Errore durante il checkout: ' . $e->getMessage());
+        // return redirect()->route('book.create')->withErrors('Errore durante il checkout: ' . $e->getMessage());
+        return redirect()->route('error')->with('message', $e->getMessage());
+
     }
 }
 

@@ -59,13 +59,19 @@
       <div class="flex flex-wrap -mx-3 mb-4">
         <div class="w-full sm:w-1/2 px-3 mb-4 sm:mb-0">
           <label for="book_description" class="block mb-1 font-semibold">Descrizione / Idee</label>
-          <textarea id="book_description" name="book_description" rows="4" class="w-full border rounded p-2" required></textarea>
+          <textarea id="book_description" name="book_description" rows="4" class="w-full border rounded p-2" required minlength="10"></textarea>
         </div>
 
+
         <div class="w-full sm:w-1/6 px-3 mb-4 sm:mb-0">
-          <label for="book_language" class="block mb-1 font-semibold">Lingua</label>
-          <input type="text" id="book_language" name="book_language" class="w-full border rounded p-2" required />
-        </div>
+        <label for="book_language" class="block mb-1 font-semibold">Lingua</label>
+        <select id="book_language" name="book_language" class="w-full border rounded p-2" required>
+          <option value="">-- Seleziona --</option>
+          <option value="ENGLISH">English</option>
+          <option value="ITALIAN">Italiano</option>
+        </select>
+      </div>
+
 
         <div class="w-full sm:w-1/6 px-3 mb-4 sm:mb-0">
           <label for="min_chapters" class="block mb-1 font-semibold">Min. Capitoli</label>

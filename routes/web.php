@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('auth.google');
+//questa route di call back è chiamata da google socialite
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 //flusso stripe...
 Route::get('/stripe/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
@@ -45,6 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::post('/book/start-checkout', [BookController::class, 'startCheckout'])->name('book.startCheckout');
 Route::get('/book/complete', [BookController::class, 'complete'])->name('book.complete');
+// errore nel pagamento
 Route::get('/book/cancel', function () {
     return redirect()->route('book.create')->withErrors('Pagamento annullato.');
 })->name('book.cancel');
