@@ -35,7 +35,8 @@ class StripeController extends Controller
             }
 
             session(['book_data' => $bookData]);
-            cache()->forget("book_data_$token");
+
+        
         }
 
 

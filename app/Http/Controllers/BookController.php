@@ -166,8 +166,6 @@ class BookController extends Controller
         //DATI SALVATI TEMPORANEAMENTE IN CACHE CON UN TOKEN
         $token = Str::uuid()->toString();
 
-        // Log::info($token);
-        Log::info("✅ Cache salvata con token $token", cache("book_data_$token"));
 
         cache()->put("book_data_$token", array_merge($validated, [
             'prezzo' => $packData['prezzo'],
@@ -256,9 +254,11 @@ class BookController extends Controller
         try {
             Log::info('Inizio chiamata al metodo generate()');
             
-            app()->call([BookController::class, 'generate'], ['request' => $generateRequest]);
+            // app()->call([BookController::class, 'generate'], ['request' => $generateRequest]);
+            app()->call([app(BookController::class), 'generate'], ['request' => $generateRequest]);
 
-            // Rimuovi i dati dalla cache
+
+            // Rimuovi i dati dalla cache!!
             cache()->forget("book_data_$token");
             Log::info('Cache rimossa per token: ' . $token);
 
