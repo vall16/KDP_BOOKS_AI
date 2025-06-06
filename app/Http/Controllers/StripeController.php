@@ -11,56 +11,6 @@ use Stripe\Checkout\Session as StripeSession;
 class StripeController extends Controller
 {
     
-    // public function checkout()
-    // {
-    //     try {
-    //         $bookData = session('book_data');
-
-    //         Log::info('PACCHETTO STRIPE', ['pack' => $bookData['pack']]);
-
-    //         if (!$bookData) {
-    //             return redirect()->route('book.create')->withErrors('Sessione scaduta.');
-    //         }
-
-    //         // Prendi il pacchetto scelto
-    //         $packCode = $bookData['pack'];
-
-    //         // Recupera i dati del pacchetto dalla config
-    //         $pacchetti = config('pacchetti');
-
-    //         if (!isset($pacchetti[$packCode])) {
-    //             return redirect()->route('book.create')->withErrors('Pacchetto non valido.');
-    //         }
-
-    //         $pacchetto = $pacchetti[$packCode];
-
-    //         Stripe::setApiKey(config('services.stripe.secret'));
-
-    //         $prezzoCentesimi = (int) round($pacchetto['prezzo'] * 100);
-
-
-    //         $checkout = StripeSession::create([
-    //             'line_items' => [[
-    //                 'price_data' => [
-    //                     'currency' => 'eur',
-    //                     'product_data' => [
-    //                         'name' => 'Creazione Libro - Pacchetto ' . $pacchetto['nome'],
-    //                     ],
-    //                     'unit_amount' => $prezzoCentesimi
-    //                 ],
-    //                 'quantity' => 1,
-    //             ]],
-    //             'mode' => 'payment',
-    //             'success_url' => route('book.complete'),
-    //             'cancel_url' => route('book.cancel'),
-    //         ]);
-
-    //         return redirect($checkout->url);
-    //     } catch (\Exception $e) {
-    //         Log::error('Errore Stripe: ' . $e->getMessage());
-    //         return redirect()->route('book.create')->withErrors('Errore durante il checkout: ' . $e->getMessage());
-    //     }
-    // }
 
     public function checkout(Request $request)
 {
@@ -116,7 +66,14 @@ class StripeController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => route('book.complete'),
+
+            //originale...
+            // 'success_url' => route('book.complete'),
+            //se ha successo passo il token
+            // 'success_url' => route('book.complete', ['token' => $token]),
+            'success_url' => route('book.complete', ['token' => $request->query('token')]),
+
+
             'cancel_url' => route('book.cancel'),
         ]);
 

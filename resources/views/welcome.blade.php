@@ -69,7 +69,7 @@
 
                 <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg w-full lg:w-[438px] shrink-0 overflow-hidden h-72">
 
-                        <img src="{{ asset('images/bookai.PNG') }}" alt="book" class="w-full h-full object-cover block">
+                        <img src="{{ asset('images/book.jpeg') }}" alt="book" class="w-full h-full object-cover block">
                 </div>
 
             </main>

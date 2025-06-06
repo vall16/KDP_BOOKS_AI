@@ -1,17 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 
-
 class BookController extends Controller
 {
     
-
     public function create(Request $request)
     {
         $packCode = $request->query('pack'); // esempio: "base"
@@ -33,8 +30,71 @@ class BookController extends Controller
     }
 
 
-   public function generate(Request $request)
+        //GENERATE ORIGINALE
+    //    public function generate(Request $request)
 
+    //     {
+    //         $request->validate([
+    //             'user_email' => 'required|email',
+    //             'author_name' => 'required|string|max:255',
+    //             'book_title' => 'required|string|max:255',
+    //             'book_description' => 'required|string',
+    //             'book_language' => 'required|string',
+    //             'min_chapters' => 'required|integer|min:1',
+    //             'min_words_per_chapter' => 'required|integer|min:1',
+    //         ]);
+
+    //         // Prepara il payload secondo le specifiche API
+    //         $payload = [
+    //             'user_email' => $request->user_email,
+    //             'author_name' => $request->author_name,
+    //             'book_title' => $request->book_title,
+    //             'book_description' => $request->book_description,
+    //             'book_language' => $request->book_language,
+    //             'min_chapters' => (string) $request->min_chapters,
+    //             'min_words_per_chapter' => (string) $request->min_words_per_chapter,
+    //         ];
+
+    //         // Chiamata API
+    //         $response = Http::withHeaders([
+    //             'accept' => 'application/json',
+    //             'Authorization' => 'Bearer ' . config('services.vibes_api.token'),
+    //             'Content-Type' => 'application/json',
+    //         ])->post('https://api.vibesrl.com/schedule_book', $payload);
+
+    //         // Gestione della risposta
+    //         if ($response->successful()) {
+    //             $data = $response->json();
+    //             return redirect()->back()->with('success', '✅ Libro generato con successo!');
+    //         } else {
+    //             return redirect()->back()->withErrors([
+    //                 'api_error' => '❌ Errore nella generazione del libro: ' . $response->body()
+    //             ])->withInput();
+    //         }
+    //     }
+
+    private function generateBook(array $data)
+    {
+        $payload = [
+            'user_email' => $data['user_email'],
+            'author_name' => $data['author_name'],
+            'book_title' => $data['book_title'],
+            'book_description' => $data['book_description'],
+            'book_language' => $data['book_language'],
+            'min_chapters' => (string) $data['min_chapters'],
+            'min_words_per_chapter' => (string) $data['min_words_per_chapter'],
+        ];
+
+        $response = Http::withHeaders([
+            'accept' => 'application/json',
+            'Authorization' => 'Bearer ' . config('services.vibes_api.token'),
+            'Content-Type' => 'application/json',
+        ])->post('https://api.vibesrl.com/schedule_book', $payload);
+
+        return $response;
+    }
+
+    public function generate(Request $request)
     {
         $request->validate([
             'user_email' => 'required|email',
@@ -46,27 +106,9 @@ class BookController extends Controller
             'min_words_per_chapter' => 'required|integer|min:1',
         ]);
 
-        // Prepara il payload secondo le specifiche API
-        $payload = [
-            'user_email' => $request->user_email,
-            'author_name' => $request->author_name,
-            'book_title' => $request->book_title,
-            'book_description' => $request->book_description,
-            'book_language' => $request->book_language,
-            'min_chapters' => (string) $request->min_chapters,
-            'min_words_per_chapter' => (string) $request->min_words_per_chapter,
-        ];
+        $response = $this->generateBook($request->all());
 
-        // Chiamata API
-        $response = Http::withHeaders([
-            'accept' => 'application/json',
-            'Authorization' => 'Bearer ' . config('services.vibes_api.token'),
-            'Content-Type' => 'application/json',
-        ])->post('https://api.vibesrl.com/schedule_book', $payload);
-
-        // Gestione della risposta
         if ($response->successful()) {
-            $data = $response->json();
             return redirect()->back()->with('success', '✅ Libro generato con successo!');
         } else {
             return redirect()->back()->withErrors([
@@ -74,6 +116,7 @@ class BookController extends Controller
             ])->withInput();
         }
     }
+
 
     public function userBooks(string $email)
     {
@@ -124,6 +167,7 @@ class BookController extends Controller
         $token = Str::uuid()->toString();
 
         // Log::info($token);
+        Log::info("✅ Cache salvata con token $token", cache("book_data_$token"));
 
         cache()->put("book_data_$token", array_merge($validated, [
             'prezzo' => $packData['prezzo'],
@@ -133,7 +177,7 @@ class BookController extends Controller
 
         session(['temp_token' => $token]);
 
-        //prova token
+        
         if (!auth()->check()) {
             //autenticazione google con token per dati di sessione
             return redirect()->route('auth.google', ['token' => $token]);
@@ -145,12 +189,89 @@ class BookController extends Controller
     }
 
 
-    public function complete()
-    {
-        // Esempio: mostra una pagina di conferma
-        return view('bookscomplete');
-    }
+    // originale
+    // public function complete()
+    // {
+    //     // Esempio: mostra una pagina di conferma
+    //     return view('bookscomplete');
+    // }
 
+    // public function complete(Request $request)
+    // {
+    //     $token = $request->query('token');
+
+    //     if (!$token) {
+    //         return redirect()->route('book.create')->withErrors('Token mancante.');
+    //     }
+
+    //     $bookData = cache("book_data_$token");
+
+    //     if (!$bookData) {
+    //         return redirect()->route('book.create')->withErrors('Dati del libro non trovati o sessione scaduta.');
+    //     }
+
+    //     // Simuliamo una richiesta manuale al metodo generate()
+    //     $generateRequest = new Request($bookData);
+
+    //     try {
+    //         //CHIAMA LA GENERAZIONE DEL LIBRO PASSANDOGLI I DATI DA TOKEN
+    //         app()->call([BookController::class, 'generate'], ['request' => $generateRequest]);
+
+    //         // Pulisci la cache
+    //         cache()->forget("book_data_$token");
+
+    //         return view('bookscomplete');
+    //     } catch (\Exception $e) {
+    //         return redirect()->route('book.create')->withErrors('Errore nella generazione del libro: ' . $e->getMessage());
+    //     }
+    // }
+
+    public function complete(Request $request)
+    {
+        $token = $request->query('token');
+
+        Log::info("COMPLETE.Token ricevuto: $token");
+        Log::info("COMPLETE.Esiste in cache: ", ['exists' => cache()->has("book_data_$token")]);
+
+        if (!$token) {
+            Log::warning('Token mancante nella richiesta di completamento Stripe');
+            return redirect()->route('error')->with('message', '⚠️ Token mancante');
+            
+        }
+
+        $bookData = cache("book_data_$token");
+
+        if (!$bookData) {
+            Log::warning("Dati libro non trovati o cache scaduta per token: $token");
+            return redirect()->route('error')->with('message', '⚠️ Sessione scaduta o dati non trovati.');
+            
+        }
+
+        Log::info('Token ricevuto da Stripe:', ['token' => $token]);
+        Log::debug('Dati recuperati dalla cache per generazione libro:', $bookData);
+
+        // Simuliamo una richiesta HTTP con i dati dalla cache
+        $generateRequest = new Request($bookData);
+
+        try {
+            Log::info('Inizio chiamata al metodo generate()');
+            
+            app()->call([BookController::class, 'generate'], ['request' => $generateRequest]);
+
+            // Rimuovi i dati dalla cache
+            cache()->forget("book_data_$token");
+            Log::info('Cache rimossa per token: ' . $token);
+
+            return view('bookscomplete')->with('success', '✅ Libro generato con successo!');
+        } catch (\Exception $e) {
+            Log::error('Errore durante la generazione del libro: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString(),
+                'token' => $token
+            ]);
+
+             return redirect()->route('error')->with('message', '❌ Errore nella generazione del libro' . $e->getMessage());
+        }
+    }
 
 
 }
