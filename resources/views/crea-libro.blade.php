@@ -35,13 +35,12 @@
       
       <input type="hidden" name="pack" value="{{ $packCode }}">
 
-
-
       <!-- Campi utente -->
       <div class="flex flex-wrap -mx-3 mb-4">
         <div class="w-full sm:w-1/3 px-3 mb-4 sm:mb-0">
           <label for="user_email" class="block mb-1 font-semibold">Email Utente</label>
-          <input type="email" id="user_email" name="user_email" class="w-full border rounded p-2" required />
+          <input type="email" id="user_email" name="user_email" class="w-full border rounded p-2" value="{{ Auth::user()->email }}" required />
+          
         </div>
 
         <div class="w-full sm:w-1/3 px-3 mb-4 sm:mb-0">
@@ -80,7 +79,7 @@
 
         <div class="w-full sm:w-1/6 px-3">
           <label for="min_words_per_chapter" class="block mb-1 font-semibold">Min. Parole / Capitolo</label>
-          <input type="number" id="min_words_per_chapter" name="min_words_per_chapter" class="w-full border rounded p-2" min="1" required />
+          <input type="number" id="min_words_per_chapter" name="min_words_per_chapter" class="w-full border rounded p-2" min="100" value="100" required />
         </div>
       </div>
 
