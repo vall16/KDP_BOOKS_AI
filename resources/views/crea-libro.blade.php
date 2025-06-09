@@ -39,7 +39,7 @@
       <div class="flex flex-wrap -mx-3 mb-4">
         <div class="w-full sm:w-1/3 px-3 mb-4 sm:mb-0">
           <label for="user_email" class="block mb-1 font-semibold">Email Utente</label>
-          <input type="email" id="user_email" name="user_email" class="w-full border rounded p-2" value="{{ Auth::user()->email }}" required />
+          <input type="email" id="user_email" name="user_email" class="w-full border rounded p-2" value="{{ Auth::check() ? Auth::user()->email : '' }}"  required />
           
         </div>
 
