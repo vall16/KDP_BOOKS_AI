@@ -58,19 +58,35 @@
           <label for="book_language" class="block mb-1 font-semibold">Language</label>
           <select id="book_language" name="book_language" class="w-full border rounded p-2" required>
             <option value="">-- Select --</option>
+            <!-- <option value="ENGLISH">English</option>
+            <option value="ITALIAN">Italian</option> -->
             <option value="ENGLISH">English</option>
-            <option value="ITALIAN">Italian</option>
+            <option value="ITALIAN">Italiano</option>
+            <option value="FRENCH">Français</option>
+            <option value="SPANISH">Español</option>
+            <option value="GERMAN">Deutsch</option>
+
           </select>
         </div>
 
         <div class="w-full sm:w-1/6 px-3 mb-4 sm:mb-0">
           <label for="min_chapters" class="block mb-1 font-semibold">Min. Chapters</label>
-          <input type="number" id="min_chapters" name="min_chapters" class="w-full border rounded p-2" min="1" required />
+          <!-- <input type="number" id="min_chapters" name="min_chapters" class="w-full border rounded p-2" min="1" required /> -->
+            <input type="number" id="min_chapters" name="min_chapters"
+         class="w-full border rounded p-2"
+         min="1"
+         value="{{ $pacchetto['chapters'] }}"
+
+         required />
+
         </div>
 
         <div class="w-full sm:w-1/6 px-3">
           <label for="min_words_per_chapter" class="block mb-1 font-semibold">Min. Words / Chapter</label>
-          <input type="number" id="min_words_per_chapter" name="min_words_per_chapter" class="w-full border rounded p-2" min="100" value="100" required />
+          <input type="number" id="min_words_per_chapter" 
+          name="min_words_per_chapter" class="w-full border rounded p-2" min="100" 
+          value="{{ $pacchetto['words_per_chapter'] }}"
+          required />
         </div>
       </div>
 

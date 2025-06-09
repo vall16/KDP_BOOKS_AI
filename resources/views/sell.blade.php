@@ -9,14 +9,18 @@
           :class="selected === '{{ $codice }}' ? 'border-blue-600 ring ring-blue-300' : 'border-transparent'"
           class="package bg-white shadow-md rounded-lg p-6 text-center cursor-pointer transition border-2">
         <h3 class="text-xl font-semibold mb-4">Package {{ $pacchetto['name'] }}</h3>
-        <p class="text-gray-600 mb-4">{{ $pacchetto['description'] }}</p>
+        <ul>
+          @foreach ($pacchetto['description_lines'] as $line)
+            <li>{{ $line }}</li>
+          @endforeach
+        </ul>
         <p class="text-2xl font-bold mb-4">€{{ number_format($pacchetto['price'], 2, ',', '.') }}</p>
         <button
           class="create-btn inline-block px-6 py-2 bg-blue-600 text-white rounded"
           :class="selected === '{{ $codice }}' ? '' : 'opacity-50 cursor-not-allowed'"
           :disabled="selected !== '{{ $codice }}'"
           @click.stop="window.location.href = '/crea-libro?pack={{ $codice }}'">
-          Crea
+          Create
         </button>
       </div>
       @endforeach
