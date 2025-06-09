@@ -125,8 +125,8 @@ class BookController extends Controller
 
 
         cache()->put("book_data_$token", array_merge($validated, [
-            'prezzo' => $packData['prezzo'],
-            'nome_pacchetto' => $packData['nome'],
+            'prezzo' => $packData['price'],
+            'nome_pacchetto' => $packData['name'],
             'descrizione_pacchetto' => $packData['descrizione'],
         ]), now()->addMinutes(15));
 

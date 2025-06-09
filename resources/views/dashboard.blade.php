@@ -3,18 +3,26 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h2 class="text-xl font-bold mb-4">Benvenuto {{ $user->name }} ({{ $user->email }})</h2>
-                    <h3 class="text-lg font-semibold mb-4">I tuoi libri</h3>
+                    <h2 class="text-xl font-bold mb-4">Welcome {{ $user->name }} ({{ $user->email }})</h2>
+                    <h3 class="text-lg font-semibold mb-4">Your books</h3>
 
                     @if(count($books))
                         <div class="flex justify-center">
+                            
+
                             <table class="w-full max-w-5xl text-sm table-auto bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
                                 <thead class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100">
                                     <tr>
-                                        <th class="px-6 py-3 text-left">Titolo</th>
+                                        <!-- <th class="px-6 py-3 text-left">Titolo</th>
                                         <th class="px-6 py-3 text-left">Autore</th>
                                         <th class="px-6 py-3 text-left">Lingua</th>
+                                        <th class="px-6 py-3 text-left">PDF</th> -->
+
+                                        <th class="px-6 py-3 text-left">Title</th>
+                                        <th class="px-6 py-3 text-left">Author</th>
+                                        <th class="px-6 py-3 text-left">Language</th>
                                         <th class="px-6 py-3 text-left">PDF</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>

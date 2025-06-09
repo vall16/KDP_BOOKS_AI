@@ -64,11 +64,17 @@
                 
                     <div class="text-sm leading-relaxed flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0_0_0_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0_0_0_1px_#fffaed2d] rounded-bl-2xl rounded-br-2xl lg:rounded-tl-2xl lg:rounded-br-none transition-all duration-300">
                     <h1 class="mb-3 text-2xl font-semibold text-[#1c1c1b] dark:text-white tracking-tight">🚀 KDP Books AI</h1>
-                    <p class="mb-4 text-[#4a4a49] dark:text-[#B0AFA9] text-base leading-7">
+                    <!-- <p class="mb-4 text-[#4a4a49] dark:text-[#B0AFA9] text-base leading-7">
                         <strong class="text-[#1c1c1b] dark:text-[#F5F5F5]">La piattaforma intelligente</strong> per creare, impaginare e pubblicare libri in pochi minuti.
                         <br class="hidden md:block">
                         Grazie all'<span class="font-semibold text-[#d97706] dark:text-[#facc15]">AI generativa</span>, puoi trasformare idee in contenuti pronti per <strong>KDP Amazon</strong>, senza competenze tecniche.
-                    </p>         
+                    </p>          -->
+                    <p class="mb-4 text-[#4a4a49] dark:text-[#B0AFA9] text-base leading-7">
+                        <strong class="text-[#1c1c1b] dark:text-[#F5F5F5]">The intelligent platform</strong> to create, format, and publish books in just a few minutes.
+                        <br class="hidden md:block">
+                        Thanks to <span class="font-semibold text-[#d97706] dark:text-[#facc15]">generative AI</span>, you can turn ideas into ready-to-publish content for <strong>Amazon KDP</strong> without any technical skills.
+                    </p>
+
                     <br>
                     <ul class="flex gap-3 text-sm leading-normal">
                         <li>
