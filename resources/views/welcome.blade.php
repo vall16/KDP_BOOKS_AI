@@ -27,20 +27,34 @@
                             Dashboard
                         </a>
                     @else
-                    <!-- /auth/google?next_action=login-only -->
+                    
                         
-                        <a href="{{ route('auth.google', ['next_action' => 'login-only']) }}">
+                        <!-- <a href="{{ route('auth.google', ['next_action' => 'login-only']) }}">
                             Login con Google 
+                        </a> -->
+                        <a href="{{ route('auth.google', ['next_action' => 'login-only']) }}"
+                             class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded shadow hover:bg-gray-100">
+                            <!-- Logo Google SVG -->
+                            <svg class="w-5 h-5 mr-2" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#4285f4" d="M533.5 278.4c0-17.4-1.5-34.1-4.3-50.3H272v95.3h147.2c-6.3 33.9-25.1 62.6-53.4 81.9v68.2h86.3c50.6-46.6 81.4-115.3 81.4-195.1z"/>
+                                <path fill="#34a853" d="M272 544.3c72.6 0 133.6-24.1 178.2-65.5l-86.3-68.2c-24 16.1-54.5 25.6-91.9 25.6-70.7 0-130.7-47.7-152.1-111.5H30.2v69.9C74.3 479.1 167.2 544.3 272 544.3z"/>
+                                <path fill="#fbbc04" d="M119.9 324.7c-10.2-30-10.2-62.5 0-92.5v-69.9H30.2c-39.8 78.2-39.8 170.6 0 248.8l89.7-69.9z"/>
+                                <path fill="#ea4335" d="M272 107.7c39.5-.6 77.4 14 106.3 41.2l79.5-79.5C428.7 24.7 352.3-1.5 272 0 167.2 0 74.3 65.2 30.2 162.3l89.7 69.9C141.3 155.4 201.3 107.7 272 107.7z"/>
+                            </svg>
+                            Login
                         </a>
 
 
-                        @if (Route::has('register'))
+
+                        <!-- @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
                                 class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
                                 Register
                             </a>
-                        @endif
+                        @endif -->
+                        {{-- Registrazione disabilitata perché si usa solo login Google --}}
+
                     @endauth
                 </nav>
             @endif
