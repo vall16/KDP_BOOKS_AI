@@ -49,12 +49,13 @@ class GoogleController extends Controller
                     //passo il token a STRIPE
                     return redirect()->route('stripe.checkout', ['token' => $token]);
                 }
+                break;
             case 'dashboard':
                 return redirect()->route('dashboard');
             case 'login-only':
                 return redirect('/sell')->with('success', 'Login effettuato!');
             default:
-                return redirect('/');
+                return redirect('/sell');
         }
     }
 

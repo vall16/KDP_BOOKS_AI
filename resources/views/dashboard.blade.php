@@ -3,8 +3,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h2 class="text-xl font-bold mb-4">Welcome {{ $user->name }} ({{ $user->email }})</h2>
-                    <h3 class="text-lg font-semibold mb-4">Your books</h3>
+                    <h2 class="text-xl font-bold mb-4">  👋 Welcome back {{ $user->name }} ({{ $user->email }})</h2>
+                    <!-- <h3 class="text-lg font-semibold mb-4">Your books</h3> -->
+                    <div class="max-w-5xl mx-auto mb-4">
+                        <h3 class="text-lg font-semibold">Your books</h3>
+                    </div>
 
                     @if(count($books))
                         <div class="flex justify-center">
@@ -78,12 +81,12 @@
                                     </div>
                                 </template>
                                 <template x-if="!details">
-                                    <p>Caricamento...</p>
+                                    <p>Loading details...</p>
                                 </template>
                             </div>
                         </div>
                     @else
-                        <p class="mt-4 text-gray-500">Nessun libro trovato.</p>
+                        <p class="mt-4 text-gray-500">Books not founded.</p>
                     @endif
                 </div>
             </div>

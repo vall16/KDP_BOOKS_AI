@@ -134,11 +134,6 @@ class BookController extends Controller
 
         // /auth/google?token=abc123&next_action=stripe
 
-        //originale
-        // if (!auth()->check()) {
-        //     //autenticazione google con token per dati di sessione
-        //     return redirect()->route('auth.google', ['token' => $token]);
-        // }
         if (!auth()->check()) {
             //autenticazione google con token per dati di sessione
             return redirect()->route('auth.google', ['token' => $token,'next_action' => 'stripe']);

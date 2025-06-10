@@ -25,76 +25,87 @@
     </p>
 
     <form method="POST" action="{{ route('book.startCheckout') }}">
-      @csrf
-      
-      <input type="hidden" name="pack" value="{{ $packCode }}">
+  @csrf
 
-      <!-- User fields -->
-      <div class="flex flex-wrap -mx-3 mb-4">
-        <div class="w-full sm:w-1/3 px-3 mb-4 sm:mb-0">
-          <label for="user_email" class="block mb-1 font-semibold">User Email</label>
-          <input type="email" id="user_email" name="user_email" class="w-full border rounded p-2" value="{{ Auth::check() ? Auth::user()->email : '' }}"  required />
-        </div>
+  <input type="hidden" name="pack" value="{{ $packCode }}">
 
-        <div class="w-full sm:w-1/3 px-3 mb-4 sm:mb-0">
-          <label for="author_name" class="block mb-1 font-semibold">Author Name</label>
-          <input type="text" id="author_name" name="author_name" class="w-full border rounded p-2" required />
-        </div>
+  <div class="space-y-6">
+    <!-- User Email -->
+    <div>
+        <!-- se sono loggato la mail è fissa forzata (è l'id) -->
+      <label for="user_email" class="block mb-1 font-semibold">User Email</label>
+      <!-- <input type="email" id="user_email" name="user_email" class="w-full border rounded p-2" value="{{ Auth::check() ? Auth::user()->email : '' }}" required /> -->
+        <input
+        type="email"
+        id="user_email"
+        name="user_email"
+        class="w-full border rounded p-2"
+        
+        value="{{ Auth::check() ? Auth::user()->email : '' }}"
+        {{ Auth::check() ? 'readonly' : '' }}
+        required
 
-        <div class="w-full sm:w-1/3 px-3">
-          <label for="book_title" class="block mb-1 font-semibold">Book Title</label>
-          <input type="text" id="book_title" name="book_title" class="w-full border rounded p-2" required />
-        </div>
-      </div>
+    />
+    
 
-      <!-- Other fields -->
-      <div class="flex flex-wrap -mx-3 mb-4">
-        <div class="w-full sm:w-1/2 px-3 mb-4 sm:mb-0">
-          <label for="book_description" class="block mb-1 font-semibold">Description / Ideas</label>
-          <textarea id="book_description" name="book_description" rows="4" class="w-full border rounded p-2" required minlength="10"></textarea>
-        </div>
+    </div>
 
-        <div class="w-full sm:w-1/6 px-3 mb-4 sm:mb-0">
-          <label for="book_language" class="block mb-1 font-semibold">Language</label>
-          <select id="book_language" name="book_language" class="w-full border rounded p-2" required>
-            <option value="">-- Select --</option>
-            <!-- <option value="ENGLISH">English</option>
-            <option value="ITALIAN">Italian</option> -->
-            <option value="ENGLISH">English</option>
-            <option value="ITALIAN">Italiano</option>
-            <option value="FRENCH">Français</option>
-            <option value="SPANISH">Español</option>
-            <option value="GERMAN">Deutsch</option>
+    <!-- Author Name -->
+    <div>
+      <label for="author_name" class="block mb-1 font-semibold">Author Name</label>
+      <input type="text" id="author_name" name="author_name" class="w-full border rounded p-2" required />
+    </div>
 
-          </select>
-        </div>
+    <!-- Book Title -->
+    <div>
+      <label for="book_title" class="block mb-1 font-semibold">Book Title</label>
+      <input type="text" id="book_title" name="book_title" class="w-full border rounded p-2" required />
+    </div>
 
-        <div class="w-full sm:w-1/6 px-3 mb-4 sm:mb-0">
-          <label for="min_chapters" class="block mb-1 font-semibold">Min. Chapters</label>
-          <!-- <input type="number" id="min_chapters" name="min_chapters" class="w-full border rounded p-2" min="1" required /> -->
-            <input type="number" id="min_chapters" name="min_chapters"
-         class="w-full border rounded p-2"
-          min="{{ $pacchetto['chapters'] }}"
-          value="{{ $pacchetto['chapters'] }}"
+    <!-- Description -->
+    <div>
+      <label for="book_description" class="block mb-1 font-semibold">Description / Ideas</label>
+      <textarea id="book_description" name="book_description" rows="4" class="w-full border rounded p-2" required minlength="10"></textarea>
+    </div>
 
-         required />
+    <!-- Language -->
+    <div>
+      <label for="book_language" class="block mb-1 font-semibold">Language</label>
+      <select id="book_language" name="book_language" class="w-full border rounded p-2" required>
+        <option value="">-- Select --</option>
+        <option value="ENGLISH">English</option>
+        <option value="ITALIAN">Italiano</option>
+        <option value="FRENCH">Français</option>
+        <option value="SPANISH">Español</option>
+        <option value="GERMAN">Deutsch</option>
+      </select>
+    </div>
 
-        </div>
+    <!-- Min Chapters -->
+    <div>
+      <label for="min_chapters" class="block mb-1 font-semibold">Min. Chapters</label>
+      <input type="number" id="min_chapters" name="min_chapters" class="w-full border rounded p-2"
+        min="{{ $pacchetto['chapters'] }}"
+        value="{{ $pacchetto['chapters'] }}" required />
+    </div>
 
-        <div class="w-full sm:w-1/6 px-3">
-          <label for="min_words_per_chapter" class="block mb-1 font-semibold">Min. Words / Chapter</label>
-          <input type="number" id="min_words_per_chapter" 
-          name="min_words_per_chapter" class="w-full border rounded p-2" 
-          min="{{ $pacchetto['words_per_chapter'] }}"
-          value="{{ $pacchetto['words_per_chapter'] }}"
-          required />
-        </div>
-      </div>
+    <!-- Min Words per Chapter -->
+    <div>
+      <label for="min_words_per_chapter" class="block mb-1 font-semibold">Min. Words / Chapter</label>
+      <input type="number" id="min_words_per_chapter" name="min_words_per_chapter" class="w-full border rounded p-2"
+        min="{{ $pacchetto['words_per_chapter'] }}"
+        value="{{ $pacchetto['words_per_chapter'] }}" required />
+    </div>
+  </div>
 
-      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
-        Purchase and Generate Book
-      </button>
-    </form>
+  <!-- Submit Button -->
+  <div class="mt-6">
+    <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+      Purchase and Generate Book
+    </button>
+  </div>
+</form>
+
   </div>
 </x-app-layout>
 ```
