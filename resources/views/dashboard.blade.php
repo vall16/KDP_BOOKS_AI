@@ -13,10 +13,7 @@
                             <table class="w-full max-w-5xl text-sm table-auto bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
                                 <thead class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-100">
                                     <tr>
-                                        <!-- <th class="px-6 py-3 text-left">Titolo</th>
-                                        <th class="px-6 py-3 text-left">Autore</th>
-                                        <th class="px-6 py-3 text-left">Lingua</th>
-                                        <th class="px-6 py-3 text-left">PDF</th> -->
+                                        
 
                                         <th class="px-6 py-3 text-left">Title</th>
                                         <th class="px-6 py-3 text-left">Author</th>
@@ -42,7 +39,7 @@
                                                         </svg>
                                                     </a>
                                                 @else
-                                                    Non pronto
+                                                    Not Ready
                                                 @endif
                                             </td>
                                         </tr>
@@ -63,21 +60,21 @@
                                 <button @click="open = false" class="absolute top-2 right-2 text-gray-700 font-bold text-xl">&times;</button>
                                 <template x-if="details">
                                     <div>
-                                        <p><strong>Autore:</strong> <span x-text="details.author_name"></span></p>
-                                        <p><strong>Lingua:</strong> <span x-text="details.book_language"></span></p>
-                                        <p><strong>Descrizione:</strong> <span x-text="details.book_description"></span></p>
-                                        <p><strong>Chapters minimi:</strong> <span x-text="details.min_chapters"></span></p>
-                                        <p><strong>Parole minime per capitolo:</strong> <span x-text="details.min_words_per_chapter"></span></p>
-                                        <p><strong>Processed:</strong> <span x-text="details.processed ? 'Sì' : 'No'"></span></p>
-                                        <p><strong>Ready:</strong> <span x-text="details.ready ? 'Sì' : 'No'"></span></p>
-                                        <p><strong>Sent:</strong> <span x-text="details.sent ? 'Sì' : 'No'"></span></p>
+                                      
+                                        <p><strong>Description:</strong> <span x-text="details.book_description"></span></p>
+                                        <p><strong>Minimum chapters:</strong> <span x-text="details.min_chapters"></span></p>
+                                        <p><strong>Minimum words per chapter:</strong> <span x-text="details.min_words_per_chapter"></span></p>
+                                        <p><strong>Processed:</strong> <span x-text="details.processed ? 'Yes' : 'No'"></span></p>
+                                        <p><strong>Ready:</strong> <span x-text="details.ready ? 'Yes' : 'No'"></span></p>
+                                        <p><strong>Sent:</strong> <span x-text="details.sent ? 'Yes' : 'No'"></span></p>
                                         <p><strong>Filename:</strong> <span x-text="details.filename"></span></p>
-                                        <p><strong>Data creazione:</strong> <span x-text="new Date(details.created_at).toLocaleString()"></span></p>
-                                        <p><strong>IP referrer:</strong> <span x-text="details.referrer_ip"></span></p>
-                                        <p><strong>Email utente:</strong> <span x-text="details.user_email"></span></p>
-                                        <p><strong>ID libro:</strong> <span x-text="details.id"></span></p>
+                                        <p><strong>Creation date:</strong> <span x-text="new Date(details.created_at).toLocaleString()"></span></p>
+                                        <p><strong>Referrer IP:</strong> <span x-text="details.referrer_ip"></span></p>
+                                        <p><strong>User email:</strong> <span x-text="details.user_email"></span></p>
+                                        <p><strong>Book ID:</strong> <span x-text="details.id"></span></p>
                                         <p><strong>User ID:</strong> <span x-text="details.user_id"></span></p>
-                                        <p><strong>Messaggio errore:</strong> <span x-text="details.error_message || 'Nessuno'"></span></p>
+                                        <p><strong>Error message:</strong> <span x-text="details.error_message || 'None'"></span></p>
+
                                     </div>
                                 </template>
                                 <template x-if="!details">

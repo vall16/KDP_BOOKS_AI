@@ -50,14 +50,14 @@ class StripeController extends Controller
         $pacchetto = $pacchetti[$packCode];
 
         Stripe::setApiKey(config('services.stripe.secret'));
-        $prezzoCentesimi = (int) round($pacchetto['prezzo'] * 100);
+        $prezzoCentesimi = (int) round($pacchetto['price'] * 100);
 
         $checkout = StripeSession::create([
             'line_items' => [[
                 'price_data' => [
                     'currency' => 'eur',
                     'product_data' => [
-                        'name' => 'Creazione Libro - Pacchetto ' . $pacchetto['nome'],
+                        'name' => 'Creazione Libro - Pacchetto ' . $pacchetto['name'],
                     ],
                     'unit_amount' => $prezzoCentesimi,
                 ],

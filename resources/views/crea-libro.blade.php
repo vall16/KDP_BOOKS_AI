@@ -74,8 +74,8 @@
           <!-- <input type="number" id="min_chapters" name="min_chapters" class="w-full border rounded p-2" min="1" required /> -->
             <input type="number" id="min_chapters" name="min_chapters"
          class="w-full border rounded p-2"
-         min="1"
-         value="{{ $pacchetto['chapters'] }}"
+          min="{{ $pacchetto['chapters'] }}"
+          value="{{ $pacchetto['chapters'] }}"
 
          required />
 
@@ -84,7 +84,8 @@
         <div class="w-full sm:w-1/6 px-3">
           <label for="min_words_per_chapter" class="block mb-1 font-semibold">Min. Words / Chapter</label>
           <input type="number" id="min_words_per_chapter" 
-          name="min_words_per_chapter" class="w-full border rounded p-2" min="100" 
+          name="min_words_per_chapter" class="w-full border rounded p-2" 
+          min="{{ $pacchetto['words_per_chapter'] }}"
           value="{{ $pacchetto['words_per_chapter'] }}"
           required />
         </div>
