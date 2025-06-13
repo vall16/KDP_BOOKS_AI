@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h2 class="text-xl font-bold mb-4">  👋 Welcome back {{ $user->name }} ({{ $user->email }})</h2>
+                    <h2 class="text-xl font-bold mb-4">  👋 Welcome back {{ $user->name }} ({{ $user->email }}) !</h2>
                     <!-- <h3 class="text-lg font-semibold mb-4">Your books</h3> -->
                     <div class="max-w-5xl mx-auto mb-4">
                         <h3 class="text-lg font-semibold">Your books</h3>
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                     @else
-                        <p class="mt-4 text-gray-500">Books not founded.</p>
+                        <p class="mt-4 text-gray-500">Books not found.</p>
                     @endif
                 </div>
             </div>
@@ -106,7 +106,7 @@
                                 this.details = data;
                             })
                             .catch(() => {
-                                this.details = { book_title: 'Errore nel caricamento', author_name: '', book_language: '' };
+                                this.details = { book_title: 'Errore in loading', author_name: '', book_language: '' };
                             });
                     }
                 }

@@ -29,9 +29,6 @@
                     @else
                     
                         
-                        <!-- <a href="{{ route('auth.google', ['next_action' => 'login-only']) }}">
-                            Login con Google 
-                        </a> -->
                         <a href="{{ route('auth.google', ['next_action' => 'login-only']) }}"
                              class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded shadow hover:bg-gray-100">
                             <!-- Logo Google SVG -->
@@ -70,12 +67,12 @@
                     </p> -->
 
                     <p class="mb-4 text-[#4a4a49] dark:text-[#B0AFA9] text-base leading-7">
-  <strong class="text-[#1c1c1b] dark:text-[#F5F5F5]">Create your next bestseller in minutes</strong> — no writing skills required.
-  <br class="hidden md:block">
-  With the power of <span class="font-semibold text-[#d97706] dark:text-[#facc15]">generative AI</span>, <strong>KDP Books AI</strong> helps you turn your raw ideas into polished, ready-to-publish books on <strong>Amazon KDP</strong>. 
-  <br class="hidden md:block">
-  Focus on your vision. We'll handle the words, formatting, and structure — instantly.
-</p>
+                        <strong class="text-[#1c1c1b] dark:text-[#F5F5F5]">Create your next bestseller in minutes</strong> — no writing skills required.
+                        <br class="hidden md:block">
+                        With the power of <span class="font-semibold text-[#d97706] dark:text-[#facc15]">generative AI</span>, <strong>KDP Books AI</strong> helps you turn your raw ideas into polished, ready-to-publish books on <strong>Amazon KDP</strong>. 
+                        <br class="hidden md:block">
+                        Focus on your vision. We'll handle the words, formatting, and structure — instantly.
+                    </p>
 
 
                     <br>

@@ -4,11 +4,12 @@
             <h1 class="text-2xl font-bold text-red-600 mb-4">❌ Si è verificato un errore</h1>
             <p class="text-gray-700 mb-6">
                 
-                {{ session('message') ?? 'Errore sconosciuto.' }}
+                {{ session('message') ?? 'Error unknown.' }}
             </p>
             <a href="{{ route('sell') }}" class="btn btn-primary">
-                Torna alla creazione del libro
+                Back to Create Book
             </a>
+            
         </div>
     </div>
 </x-app-layout>
