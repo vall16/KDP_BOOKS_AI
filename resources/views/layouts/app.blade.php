@@ -1,7 +1,8 @@
 
 <!DOCTYPE html>
 <!-- È un layout Blade, ovvero uno scheletro HTML comune a tutte le pagine. -->
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" >
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,23 +20,31 @@
     
 
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+            
+
+        <div class="min-h-screen bg-black">
             <!-- partial view NAVIGATION.BLADE !!!-->
+             <!-- <nav class="bg-black text-white p-4">
+    TEST NAVBAR NERA -->
+<!-- </nav> -->
+
             @include('layouts.navigation')
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endisset
+            <div class="pt-16"> 
+                <!-- Page Heading -->
+                @isset($header)
+                    <header class="bg-white dark:bg-gray-800 shadow">
+                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                            {{ $header }}
+                        </div>
+                    </header>
+                @endisset
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                <!-- Page Content -->
+                <main>
+                    {{ $slot }}
+                </main>
+            </div>
             <footer class="text-center py-6 text-gray-500 text-sm">
                     &copy; 2025 Vibe srl. Tutti i diritti riservati.
             </footer>

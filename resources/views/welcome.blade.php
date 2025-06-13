@@ -58,7 +58,7 @@
             <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
                 
                     <div class="text-sm leading-relaxed flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0_0_0_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0_0_0_1px_#fffaed2d] rounded-bl-2xl rounded-br-2xl lg:rounded-tl-2xl lg:rounded-br-none transition-all duration-300">
-                    <h1 class="mb-3 text-2xl font-semibold text-[#1c1c1b] dark:text-white tracking-tight">🚀 KDP Books AI</h1>
+                    <h1 class="mb-3 text-2xl font-semibold text-[#1c1c1b] dark:text-white tracking-tight"> KDP Books AI</h1>
                     
                     <!-- <p class="mb-4 text-[#4a4a49] dark:text-[#B0AFA9] text-base leading-7">
                         <strong class="text-[#1c1c1b] dark:text-[#F5F5F5]">The intelligent platform</strong> to create, format, and publish books in just a few minutes.
@@ -88,7 +88,7 @@
 
                 <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg w-full lg:w-[438px] shrink-0 overflow-hidden h-72">
 
-                        <img src="{{ asset('images/book.jpeg') }}" alt="book" class="w-full h-full object-cover block">
+                        <img src="{{ asset('images/landing.jpeg') }}" alt="book" class="w-full h-full object-cover block">
                 </div>
 
             </main>
