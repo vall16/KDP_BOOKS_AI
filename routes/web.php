@@ -11,7 +11,9 @@ use App\Http\Controllers\{
 
 
 // Homepage
-Route::view('/', 'welcome');
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
 // Pagina di vendita pubblica: SCELTA PACCHETTO
 Route::view('/sell', 'sell')->name('sell');
 //pagina gestione errori...
