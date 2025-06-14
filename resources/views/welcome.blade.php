@@ -15,8 +15,10 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+    <!-- <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col"> -->
+    <body class="bg-black text-white flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+
+    <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
@@ -29,17 +31,20 @@
                     @else
                     
                         
+                        
+
                         <a href="{{ route('auth.google', ['next_action' => 'login-only']) }}"
-                             class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded shadow hover:bg-gray-100">
-                            <!-- Logo Google SVG -->
-                            <svg class="w-5 h-5 mr-2" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#4285f4" d="M533.5 278.4c0-17.4-1.5-34.1-4.3-50.3H272v95.3h147.2c-6.3 33.9-25.1 62.6-53.4 81.9v68.2h86.3c50.6-46.6 81.4-115.3 81.4-195.1z"/>
-                                <path fill="#34a853" d="M272 544.3c72.6 0 133.6-24.1 178.2-65.5l-86.3-68.2c-24 16.1-54.5 25.6-91.9 25.6-70.7 0-130.7-47.7-152.1-111.5H30.2v69.9C74.3 479.1 167.2 544.3 272 544.3z"/>
-                                <path fill="#fbbc04" d="M119.9 324.7c-10.2-30-10.2-62.5 0-92.5v-69.9H30.2c-39.8 78.2-39.8 170.6 0 248.8l89.7-69.9z"/>
-                                <path fill="#ea4335" d="M272 107.7c39.5-.6 77.4 14 106.3 41.2l79.5-79.5C428.7 24.7 352.3-1.5 272 0 167.2 0 74.3 65.2 30.2 162.3l89.7 69.9C141.3 155.4 201.3 107.7 272 107.7z"/>
-                            </svg>
-                            Login
+                            class="inline-flex items-center px-4 py-2 bg-black text-white border border-blue-500 rounded shadow hover:bg-blue-800 hover:text-white transition-colors duration-200">
+                                <!-- Logo Google SVG -->
+                                <svg class="w-5 h-5 mr-2" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#4285f4" d="M533.5 278.4c0-17.4-1.5-34.1-4.3-50.3H272v95.3h147.2c-6.3 33.9-25.1 62.6-53.4 81.9v68.2h86.3c50.6-46.6 81.4-115.3 81.4-195.1z"/>
+                                    <path fill="#34a853" d="M272 544.3c72.6 0 133.6-24.1 178.2-65.5l-86.3-68.2c-24 16.1-54.5 25.6-91.9 25.6-70.7 0-130.7-47.7-152.1-111.5H30.2v69.9C74.3 479.1 167.2 544.3 272 544.3z"/>
+                                    <path fill="#fbbc04" d="M119.9 324.7c-10.2-30-10.2-62.5 0-92.5v-69.9H30.2c-39.8 78.2-39.8 170.6 0 248.8l89.7-69.9z"/>
+                                    <path fill="#ea4335" d="M272 107.7c39.5-.6 77.4 14 106.3 41.2l79.5-79.5C428.7 24.7 352.3-1.5 272 0 167.2 0 74.3 65.2 30.2 162.3l89.7 69.9C141.3 155.4 201.3 107.7 272 107.7z"/>
+                                </svg>
+                                Login
                         </a>
+
 
                         <!-- @if (Route::has('register'))
                             <a
@@ -57,33 +62,31 @@
         <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
             <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
                 
-                    <div class="text-sm leading-relaxed flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0_0_0_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0_0_0_1px_#fffaed2d] rounded-bl-2xl rounded-br-2xl lg:rounded-tl-2xl lg:rounded-br-none transition-all duration-300">
-                    <h1 class="mb-3 text-2xl font-semibold text-[#1c1c1b] dark:text-white tracking-tight"> KDP Books AI</h1>
                     
-                    <!-- <p class="mb-4 text-[#4a4a49] dark:text-[#B0AFA9] text-base leading-7">
-                        <strong class="text-[#1c1c1b] dark:text-[#F5F5F5]">The intelligent platform</strong> to create, format, and publish books in just a few minutes.
-                        <br class="hidden md:block">
-                        Thanks to <span class="font-semibold text-[#d97706] dark:text-[#facc15]">generative AI</span>, you can turn ideas into ready-to-publish content for <strong>Amazon KDP</strong> without any technical skills.
-                    </p> -->
+                    <div class="text-sm leading-relaxed flex-1 p-6 pb-12 lg:p-20 bg-black text-white shadow-inner rounded-bl-2xl rounded-br-2xl lg:rounded-tl-2xl lg:rounded-br-none transition-all duration-300">
+                    <h1 class="mb-3 text-2xl font-semibold text-white tracking-tight">
+                        KDP Books AI
+                    </h1>
 
-                    <p class="mb-4 text-[#4a4a49] dark:text-[#B0AFA9] text-base leading-7">
-                        <strong class="text-[#1c1c1b] dark:text-[#F5F5F5]">Create your next bestseller in minutes</strong> — no writing skills required.
+                    <p class="mb-4 text-white text-base leading-7">
+                        <strong class="text-white">Create your next bestseller in minutes</strong> — no writing skills required.
                         <br class="hidden md:block">
-                        With the power of <span class="font-semibold text-[#d97706] dark:text-[#facc15]">generative AI</span>, <strong>KDP Books AI</strong> helps you turn your raw ideas into polished, ready-to-publish books on <strong>Amazon KDP</strong>. 
+                        With the power of <span class="font-semibold text-yellow-400">generative AI</span>, <strong>KDP Books AI</strong> helps you turn your raw ideas into polished, ready-to-publish books on <strong>Amazon KDP</strong>. 
                         <br class="hidden md:block">
                         Focus on your vision. We'll handle the words, formatting, and structure — instantly.
                     </p>
 
-
                     <br>
                     <ul class="flex gap-3 text-sm leading-normal">
                         <li>
-                            <a href="{{ url('/sell') }}"  class="inline-block dark:bg-[#eeeeec] dark:border-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white dark:hover:border-white hover:bg-black hover:border-black px-5 py-1.5 bg-[#1b1b18] rounded-sm border border-black text-white text-sm leading-normal">
+                            <a href="{{ url('/sell') }}"
+                            class="inline-block px-5 py-1.5 bg-black text-white border border-blue-500 hover:bg-blue-800 rounded-sm text-sm leading-normal">
                                 Sell Page
                             </a>
                         </li>
                     </ul>
                 </div>
+
                 
 
                 <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg w-full lg:w-[438px] shrink-0 overflow-hidden h-72">

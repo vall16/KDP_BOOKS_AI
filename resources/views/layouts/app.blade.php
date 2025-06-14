@@ -24,9 +24,9 @@
 
         <div class="min-h-screen bg-black">
             <!-- partial view NAVIGATION.BLADE !!!-->
-             <!-- <nav class="bg-black text-white p-4">
-    TEST NAVBAR NERA -->
-<!-- </nav> -->
+             <nav class="bg-black text-white p-4">
+    TEST NAVBAR NERA 
+</nav> 
 
             @include('layouts.navigation')
 
