@@ -1,15 +1,16 @@
+
 <x-app-layout>
-  <main class="max-w-5xl mx-auto py-16 px-4 bg-gray-50 min-h-screen"
+  <main class="max-w-5xl mx-auto py-16 px-4 bg-black text-white min-h-screen"
         x-data="{ selected: null }">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Choose Your Package</h2>
+    <h2 class="text-3xl font-bold text-center mb-12 text-white">Choose Your Package</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       @foreach(config('pacchetti') as $codice => $pacchetto)
       <div @click="selected = '{{ $codice }}'"
-          :class="selected === '{{ $codice }}' ? 'border-blue-600 ring ring-blue-300' : 'border-transparent'"
-          class="package bg-white shadow-md rounded-lg p-6 text-center cursor-pointer transition border-2">
+          :class="selected === '{{ $codice }}' ? 'border-blue-600 ring ring-blue-300' : 'border-gray-700'"
+          class="package bg-gray-900 shadow-md rounded-lg p-6 text-center cursor-pointer transition border-2 text-white">
         <h3 class="text-xl font-semibold mb-4">Package {{ $pacchetto['name'] }}</h3>
-        <ul>
+        <ul class="mb-4">
           @foreach ($pacchetto['description_lines'] as $line)
             <li>{{ $line }}</li>
           @endforeach
@@ -24,7 +25,6 @@
         </button>
       </div>
       @endforeach
-
     </div>
   </main>
 </x-app-layout>
