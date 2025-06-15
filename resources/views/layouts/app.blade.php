@@ -39,9 +39,12 @@
                     {{ $slot }}
                 </main>
             </div>
-            <footer class="text-center py-6 text-gray-500 text-sm">
-                    &copy; 2025 Vibe srl. Tutti i diritti riservati.
-            </footer>
+         <footer class="bg-black text-white text-left py-6 px-4 text-sm border-t-2
+">
+  &copy; 2025 Vibe srl. Tutti i diritti riservati.
+</footer>
+
+
 
         </div>
         <!-- @stack('scripts') {{-- NECESSARIO per @push funzionare --}} -->
