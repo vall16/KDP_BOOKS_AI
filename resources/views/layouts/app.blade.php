@@ -40,38 +40,52 @@
                     {{ $slot }}
                 </main>
             </div>
-         <footer class="bg-black text-white text-left py-6 px-4 text-sm border-t
-">
-  &copy; 2025 Vibe srl. | All Rights Reserved
-
-
-</footer>
+            <footer class="bg-black text-white text-left py-6 px-4 text-sm border-t">
+                    &copy; 2025 Vibe srl. | All Rights Reserved
+            </footer>
 
 
 
-        </div>
+        <!-- </div> -->
         <!-- @stack('scripts') {{-- NECESSARIO per @push funzionare --}} -->
+
+         <!-- Fullscreen Loader Overlay -->
+        <div id="global-loader" class="fixed inset-0 bg-black bg-opacity-100 flex items-center justify-center z-50 hidden">
+            <svg class="animate-spin h-20 w-20 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
+            </svg>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const loader = document.getElementById('global-loader');
+
+                // Per ogni link <a> con classe loader-link
+                document.querySelectorAll('a.loader-link, button.loader-link').forEach(el => {
+                    el.addEventListener('click', e => {
+                        const href = el.getAttribute('href');
+
+                        if (href && href.startsWith('#')) return; // ignora anchor link
+
+                        e.preventDefault();  // Blocca la navigazione immediata!
+
+
+                        // Mostra loader
+                        loader.classList.remove('hidden');
+
+                        // Per evitare che il loader si chiuda troppo in fretta
+                        setTimeout(() => {
+                            // Se è un <a> con href, naviga dopo un attimo
+                            if (el.tagName === 'A' && href) {
+                                window.location.href = href;
+                            }
+                        }, 500); // mezzo secondo
+                    });
+                });
+            });
+        </script>
+
+
     </body>
 </html>
-
-<script>
-    // spinner 
-    document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.loader-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Mostra loader
-                const text = link.querySelector('.link-text');
-                const spinner = link.querySelector('.loader-spinner');
-
-                if (text && spinner) {
-                    text.classList.add('opacity-50');
-                    spinner.classList.remove('hidden');
-                }
-
-                // Disabilita clic ulteriori
-                link.style.pointerEvents = 'none';
-            });
-        });
-    });
-</script>
 

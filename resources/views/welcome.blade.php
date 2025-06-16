@@ -34,7 +34,7 @@
                         
 
                         <a href="{{ route('auth.google', ['next_action' => 'login-only']) }}"
-                            class="inline-flex items-center px-4 py-2 bg-black text-white border border-purple-500 rounded shadow hover:bg-purple-800 hover:text-white transition-colors duration-200">
+                            class="loader-link inline-flex items-center px-4 py-2 bg-black text-white border border-purple-500 rounded shadow hover:bg-purple-800 hover:text-white transition-colors duration-200">
                                 <!-- Logo Google SVG -->
                                 <svg class="w-5 h-5 mr-2" viewBox="0 0 533.5 544.3" xmlns="http://www.w3.org/2000/svg">
                                     <path fill="#4285f4" d="M533.5 278.4c0-17.4-1.5-34.1-4.3-50.3H272v95.3h147.2c-6.3 33.9-25.1 62.6-53.4 81.9v68.2h86.3c50.6-46.6 81.4-115.3 81.4-195.1z"/>
@@ -80,8 +80,8 @@
                     <br>
                     <ul class="flex gap-3 text-sm leading-normal">
                         <li>
-                            <a href="{{ url('/sell') }}"
-                            class="inline-block px-5 py-1.5 bg-black text-white border border-purple-500 hover:bg-purple-800 rounded-sm text-sm leading-normal">
+                            <a href="{{ url('/sell') }}" 
+                            class="loader-link inline-block px-5 py-1.5 bg-black text-white border border-purple-500 hover:bg-purple-800 rounded-sm text-sm leading-normal">
                                 Sell Page 
                             </a>
                         </li>
@@ -101,6 +101,8 @@
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
+
+
     </body>
     <footer class="bg-black text-white text-left py-6 px-4 text-sm border-t-2">
         &copy; 2025 Vibe srl. | All Rights Reserved.
