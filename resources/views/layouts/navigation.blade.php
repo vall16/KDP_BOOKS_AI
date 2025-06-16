@@ -30,14 +30,14 @@
                 <!-- Navigation Links ... se si è sulla pagina, sono evidenziati-->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex ">
                     
-                    <x-nav-link :href="$dashboardUrl" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="$dashboardUrl" :active="request()->routeIs('dashboard')" class="loader-link">
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('sell')" :active="request()->routeIs('sell')">
+                    <x-nav-link :href="route('sell')" :active="request()->routeIs('sell')" class="loader-link">
                         {{ __('Sell Page') }}
                     </x-nav-link>
                 </div>
