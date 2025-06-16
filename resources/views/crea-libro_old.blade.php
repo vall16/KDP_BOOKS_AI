@@ -17,7 +17,7 @@
   @endif
 
   <div class="max-w-6xl mx-auto mt-12 p-6 bg-white rounded-lg shadow">
-    <h1 class="text-2xl font-bold mb-6">📚 Book Creation</h1>
+    <h1 class="text-4xl font-bold mb-6">📚 Book Creation</h1>
 
     <p class="mb-6">
       You have selected the <strong>Package: {{ $pacchetto['name'] }}</strong> <br>

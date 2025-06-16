@@ -2,7 +2,9 @@
     <div class="py-12 bg-black text-white min-h-screen" x-data="bookModal()">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-900 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-white">
+                <!-- <div class="p-6 text-white"> -->
+                <div class="p-6 text-white text-center">
+
                     <h2 class="text-xl font-bold mb-4"> Welcome back {{ $user->name }} ({{ $user->email }})!</h2>
 
                     <div class="max-w-5xl mx-auto mb-4">
@@ -37,7 +39,8 @@
                                                         </svg>
                                                     </a>
                                                 @else
-                                                    Not Ready
+                                                    <span class="text-yellow-400 font-semibold">Not Ready</span>
+
                                                 @endif
                                             </td>
                                         </tr>

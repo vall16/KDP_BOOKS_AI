@@ -82,7 +82,7 @@
                         <li>
                             <a href="{{ url('/sell') }}"
                             class="inline-block px-5 py-1.5 bg-black text-white border border-purple-500 hover:bg-purple-800 rounded-sm text-sm leading-normal">
-                                Sell Page
+                                Sell Page 
                             </a>
                         </li>
                     </ul>

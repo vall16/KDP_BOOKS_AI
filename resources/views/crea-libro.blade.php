@@ -16,12 +16,17 @@
   @endif
 
   <div class="max-w-6xl mx-auto mt-12 p-6 bg-black text-white rounded-lg shadow">
-    <h1 class="text-2xl font-bold mb-6">Book Creation</h1>
+    <h1 class="text-4xl font-bold mb-6">Book Creation</h1>
 
     <p class="mb-6">
-      You have selected the <strong>Package: {{ $pacchetto['name'] }}</strong> <br>
-      Price: <strong>€{{ number_format($pacchetto['price'], 2, ',', '.') }}</strong>
+      <!-- You have selected the <strong>Package: {{ $pacchetto['name'] }}</strong> <br>
+      Price: <strong>€{{ number_format($pacchetto['price'], 2, ',', '.') }}</strong> -->
+      You have selected the Package: <strong class="text-purple-500"> {{ $pacchetto['name'] }}</strong> <br>
+Price: <strong class="text-purple-500">€{{ number_format($pacchetto['price'], 2, ',', '.') }}</strong>
+
     </p>
+
+    
 
     <form method="POST" action="{{ route('book.startCheckout') }}">
       @csrf
@@ -92,10 +97,17 @@
       </div>
 
       <!-- Submit Button -->
-      <div class="mt-6">
-        <button type="submit" class="bg-white text-black px-6 py-2 rounded hover:bg-gray-300 transition">
-          Purchase and Generate Book
+      <!-- <div class="mt-6">
+        <button type="submit" class="bg-black text-purple-500 px-6 py-2 rounded hover:bg-gray-800 transition">
+  Purchase and Generate Book
+</button> -->
+        <div class="mt-6">
+        <button type="submit" class="bg-black text-purple-500 border border-purple-500 px-6 py-2 rounded hover:bg-gray-800 transition">
+        Purchase and Generate Book
         </button>
+        </div>
+
+
       </div>
     </form>
   </div>
