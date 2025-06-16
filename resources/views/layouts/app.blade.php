@@ -39,9 +39,11 @@
                     {{ $slot }}
                 </main>
             </div>
-         <footer class="bg-black text-white text-left py-6 px-4 text-sm border-t-2
+         <footer class="bg-black text-white text-left py-6 px-4 text-sm border-t
 ">
-  &copy; 2025 Vibe srl. Tutti i diritti riservati.
+  &copy; 2025 Vibe srl. | All Rights Reserved
+
+
 </footer>
 
 
@@ -50,3 +52,25 @@
         <!-- @stack('scripts') {{-- NECESSARIO per @push funzionare --}} -->
     </body>
 </html>
+
+<script>
+    // spinner 
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.loader-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Mostra loader
+                const text = link.querySelector('.link-text');
+                const spinner = link.querySelector('.loader-spinner');
+
+                if (text && spinner) {
+                    text.classList.add('opacity-50');
+                    spinner.classList.remove('hidden');
+                }
+
+                // Disabilita clic ulteriori
+                link.style.pointerEvents = 'none';
+            });
+        });
+    });
+</script>
+
