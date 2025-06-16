@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 /* //william: unico cSS iniziale */
+/* se scelgo gli input, diviene purple il bordo */
+.input-purple:focus {
+  border-color: #a855f7; /* purple-500 */
+  box-shadow: 0 0 0 1px #a855f7;
+}

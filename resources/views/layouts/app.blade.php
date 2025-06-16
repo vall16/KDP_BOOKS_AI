@@ -19,8 +19,9 @@
     </head>
     
 
-    <body class="font-sans antialiased">
-            
+    <!-- // il body di tutte le pagine è nero  -->
+    <body class="font-sans antialiased bg-black text-white">
+        
 
             @include('layouts.navigation')
 

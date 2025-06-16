@@ -11,7 +11,7 @@
           <div @click="selected = '{{ $codice }}'"
               :class="selected === '{{ $codice }}' ? 'ring ring-purple-300' : ''"
               class="package bg-black text-white border-2 border-purple-500 shadow-md rounded-lg p-6 text-center cursor-pointer transition">
-            <h3 class="text-xl font-semibold mb-4 border-b border-purple-500 pb-2">Package {{ $pacchetto['name'] }}</h3>
+            <h3 class="text-3xl font-semibold mb-4 border-b border-purple-500 pb-2">{{ $pacchetto['name'] }}</h3>
             <ul class="mb-4 space-y-1 text-gray-300">
               @foreach ($pacchetto['description_lines'] as $line)
                 <li class="border-b border-purple-500 pb-1">{{ $line }}</li>

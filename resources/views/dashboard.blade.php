@@ -24,7 +24,7 @@
                                     @foreach ($books as $book)
                                         <tr class="border-t border-gray-600 hover:bg-gray-700">
                                             <td @click="fetchDetails({{ $book['id'] }})"
-                                                class="px-6 py-4 cursor-pointer text-blue-400 hover:underline">
+                                                class="px-6 py-4 cursor-pointer text-purple-400 hover:underline">
                                                 {{ $book['book_title'] }}
                                             </td>
                                             <td class="px-6 py-4">{{ $book['author_name'] }}</td>

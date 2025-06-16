@@ -1,8 +1,4 @@
 <!-- è la navbar di breeze -->
-<!-- <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700"> -->
-<!-- <nav x-data="{ open: false }" class="bg-blue-50 dark:bg-gray-800 border-b border-blue-200 dark:border-gray-700"> -->
-<!-- <nav x-data="{ open: false }" class="sticky top-0 z-50 bg-blue-50 dark:bg-gray-800 border-b border-blue-200 dark:border-gray-700"> -->
-<!-- class="fixed top-0 left-0 w-full z-50 border-b border-gray-700 text-white" -->  
 <nav
     x-data="{ open: false }"
 
@@ -58,7 +54,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <!-- <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"> -->
-                        <button class="inline-flex items-center px-3 py-2 border border-blue-500 text-sm leading-4 font-medium rounded-md text-white bg-black hover:bg-gray-900 hover:text-blue-400 focus:outline-none transition ease-in-out duration-150">
+                        <button class="inline-flex items-center px-3 py-2 border border-purple-500 text-sm leading-4 font-medium rounded-md text-white bg-black hover:bg-gray-900 hover:text-purple-400 focus:outline-none transition ease-in-out duration-150">
  
                         <div>{{ Auth::user()->name }}</div>
 
@@ -115,15 +111,12 @@
          @auth
 
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
-            <!-- <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div> -->
+            
 
-            <div class="px-4">
-    <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
-    <div class="font-medium text-sm text-blue-300">{{ Auth::user()->email }}</div>
-</div>
+        <div class="px-4">
+        <div class="font-medium text-base text-white">{{ Auth::user()->name }}</div>
+        <div class="font-medium text-sm text-purple-300">{{ Auth::user()->email }}</div>
+    </div>
 
 
             <div class="mt-3 space-y-1">

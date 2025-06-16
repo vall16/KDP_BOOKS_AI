@@ -30,40 +30,41 @@
       <div class="space-y-6">
         <!-- User Email -->
         <div>
-          <label for="user_email" class="block mb-1 font-semibold">User Email</label>
+          <label for="user_email" class="block mb-1 font-semibold input-purple">User Email</label>
           <input
             type="email"
             id="user_email"
             name="user_email"
-            class="w-full border border-gray-600 rounded p-2 bg-black text-white"
+            class="input-purple w-full border border-gray-600 rounded p-2 bg-black text-white"
             value="{{ Auth::check() ? Auth::user()->email : '' }}"
             {{ Auth::check() ? 'readonly' : '' }}
             required
+            
           />
         </div>
 
         <!-- Author Name -->
         <div>
-          <label for="author_name" class="block mb-1 font-semibold">Author Name</label>
-          <input type="text" id="author_name" name="author_name" class="w-full border border-gray-600 rounded p-2 bg-black text-white" required />
+          <label for="author_name" class="block mb-1 font-semibold ">Author Name</label>
+          <input type="text" id="author_name" name="author_name" class="input-purple w-full border border-gray-600 rounded p-2 bg-black text-white" required />
         </div>
 
         <!-- Book Title -->
         <div>
           <label for="book_title" class="block mb-1 font-semibold">Book Title</label>
-          <input type="text" id="book_title" name="book_title" class="w-full border border-gray-600 rounded p-2 bg-black text-white" required />
+          <input type="text" id="book_title" name="book_title" class=" input-purple w-full border border-gray-600 rounded p-2 bg-black text-white" required />
         </div>
 
         <!-- Description -->
         <div>
           <label for="book_description" class="block mb-1 font-semibold">Description / Ideas</label>
-          <textarea id="book_description" name="book_description" rows="4" class="w-full border border-gray-600 rounded p-2 bg-black text-white" required minlength="10"></textarea>
+          <textarea id="book_description" name="book_description" rows="4" class="input-purple w-full border border-gray-600 rounded p-2 bg-black text-white" required minlength="10"></textarea>
         </div>
 
         <!-- Language -->
         <div>
           <label for="book_language" class="block mb-1 font-semibold">Language</label>
-          <select id="book_language" name="book_language" class="w-full border border-gray-600 rounded p-2 bg-black text-white" required>
+          <select id="book_language" name="book_language" class=" input-purple w-full border border-gray-600 rounded p-2 bg-black text-white" required>
             <option value="">-- Select --</option>
             <option value="ENGLISH">English</option>
             <option value="ITALIAN">Italiano</option>
@@ -76,7 +77,7 @@
         <!-- Min Chapters -->
         <div>
           <label for="min_chapters" class="block mb-1 font-semibold">Min. Chapters</label>
-          <input type="number" id="min_chapters" name="min_chapters" class="w-full border border-gray-600 rounded p-2 bg-black text-white"
+          <input type="number" id="min_chapters" name="min_chapters" class=" input-purple w-full border border-gray-600 rounded p-2 bg-black text-white"
             min="{{ $pacchetto['chapters'] }}"
             value="{{ $pacchetto['chapters'] }}" required />
         </div>
@@ -84,7 +85,7 @@
         <!-- Min Words per Chapter -->
         <div>
           <label for="min_words_per_chapter" class="block mb-1 font-semibold">Min. Words / Chapter</label>
-          <input type="number" id="min_words_per_chapter" name="min_words_per_chapter" class="w-full border border-gray-600 rounded p-2 bg-black text-white"
+          <input type="number" id="min_words_per_chapter" name="min_words_per_chapter" class=" input-purple w-full border border-gray-600 rounded p-2 bg-black text-white"
             min="{{ $pacchetto['words_per_chapter'] }}"
             value="{{ $pacchetto['words_per_chapter'] }}" required />
         </div>
