@@ -60,10 +60,11 @@
             @endif
         </header>
         <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-            <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
-                
+            <!-- <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row"> -->
+            <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row lg:h-auto">
+
                     
-                    <div class="text-sm leading-relaxed flex-1 p-6 pb-12 lg:p-20 bg-black text-white shadow-inner rounded-bl-2xl rounded-br-2xl lg:rounded-tl-2xl lg:rounded-br-none transition-all duration-300">
+                <div class="text-sm leading-relaxed flex-1 p-6 pb-12 lg:p-20 bg-black text-white shadow-inner rounded-bl-2xl rounded-br-2xl lg:rounded-tl-2xl lg:rounded-br-none transition-all duration-300 h-full">
                     <h1 class="mb-3 text-2xl font-semibold text-white tracking-tight">
                         KDP Books AI
                     </h1>
@@ -89,7 +90,7 @@
 
                 
 
-                <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg w-full lg:w-[438px] shrink-0 overflow-hidden h-72">
+                <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg w-full lg:w-[438px] shrink-0 overflow-hidden h-72 h-full">
 
                         <img src="{{ asset('images/landing.jpeg') }}" alt="book" class="w-full h-full object-cover block">
                 </div>
@@ -101,7 +102,7 @@
             <div class="h-14.5 hidden lg:block"></div>
         @endif
     </body>
-    <footer class="text-center py-6 text-gray-500 text-sm">
-                    &copy; 2025 Vibe srl. Tutti i diritti riservati.
-            </footer>
+    <footer class="bg-black text-white text-left py-6 px-4 text-sm border-t-2">
+        &copy; 2025 Vibe srl. Tutti i diritti riservati.
+    </footer>
 </html>
