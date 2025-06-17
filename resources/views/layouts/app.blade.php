@@ -56,7 +56,7 @@
                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
             </svg>
         </div>
-        <script>
+        <!-- <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const loader = document.getElementById('global-loader');
 
@@ -83,7 +83,7 @@
                     });
                 });
             });
-        </script>
+        </script> -->
 
 
     </body>

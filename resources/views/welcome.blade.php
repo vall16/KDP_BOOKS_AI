@@ -15,7 +15,6 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         
     </head>
-    <!-- <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col"> -->
     <body class="bg-black text-white flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
 
     <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
@@ -93,6 +92,13 @@
                 <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg w-full lg:w-[438px] shrink-0 overflow-hidden h-72 h-full">
 
                         <img src="{{ asset('images/landing.jpeg') }}" alt="book" class="w-full h-full object-cover block">
+                </div>
+                <!-- Fullscreen Loader Overlay SPINNER-->
+                <div id="global-loader" class="fixed inset-0 bg-black bg-opacity-100 flex items-center justify-center z-50 hidden">
+                    <svg class="animate-spin h-20 w-20 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
+                    </svg>
                 </div>
 
             </main>
