@@ -1,12 +1,12 @@
 <x-app-layout>
   @if (session('success'))
-    <div class="mb-4 p-4 rounded bg-green-800 text-white border border-green-500">
+    <div class="mb-4 p-4 rounded bg-green-800 text-white border border-green-500"style="background-image: url('/images/sfondo.PNG')">
         {{ session('success') }}
     </div>
   @endif
 
   @if ($errors->any())
-    <div class="mb-4 p-4 rounded bg-red-800 text-white border border-red-500">
+    <div class="mb-4 p-4 rounded bg-red-800 text-white border border-red-500"style="background-image: url('/images/sfondo.PNG')">
         <ul class="list-disc pl-5">
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
@@ -15,7 +15,8 @@
     </div>
   @endif
 
-  <div class="max-w-6xl mx-auto mt-12 p-6 bg-black text-white rounded-lg shadow">
+  <div class="max-w-6xl mx-auto mt-12 p-6 bg-black text-white rounded-lg shadow" >
+    
     <h1 class="text-4xl font-bold mb-6">Book Creation</h1>
 
     <p class="mb-6">

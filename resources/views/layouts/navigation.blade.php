@@ -44,7 +44,7 @@
                 
 
                 <!-- Navigation Links ... se si è sulla pagina, sono evidenziati-->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex ">
+                <div class="hidden space-x-8 sm:-my-px sm:ms-24 sm:flex ">
                     
                     <x-nav-link :href="$dashboardUrl" :active="request()->routeIs('dashboard')" class="loader-link">
                         {{ __('Dashboard') }}

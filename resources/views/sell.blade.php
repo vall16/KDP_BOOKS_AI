@@ -1,5 +1,7 @@
 <x-app-layout>
-<div class="bg-black min-h-screen text-white px-[100px]">
+<!-- <div class="bg-black min-h-screen text-white px-[100px]"> -->
+  <div class="min-h-screen text-white px-[100px] bg-cover bg-center" style="background-image: url('/images/sfondo.PNG')">
+
 
   
     <main class="py-16 px-4 bg-black text-white min-h-screen"
@@ -12,11 +14,24 @@
               :class="selected === '{{ $codice }}' ? 'ring ring-orange-300' : ''"
               class="package bg-black text-white border-2 border-orange-500 shadow-md rounded-lg p-6 text-center cursor-pointer transition">
             <h3 class="text-3xl font-semibold mb-4 border-b border-orange-500 pb-2">{{ $pacchetto['name'] }}</h3>
-            <ul class="mb-4 space-y-1 text-gray-300">
+            <!-- <ul class="mb-4 space-y-1 text-gray-300">
               @foreach ($pacchetto['description_lines'] as $line)
                 <li class="border-b border-orange-500 pb-1">{{ $line }}</li>
               @endforeach
-            </ul>
+            </ul> -->
+            <div class="h-6"></div>
+            @foreach ($pacchetto['description_lines'] as $line)
+            <li class="flex items-start gap-2 text-gray-300">
+                <span class="text-orange-500">&gt;</span>
+                <!-- <span>{{ $line }}</span> -->
+                <span class="text-lg">{{ $line }}</span>
+            </li>
+             @endforeach 
+
+             <div class="h-6"></div>
+
+            
+
             <p class="text-2xl font-bold mb-4 border-b border-orange-500 pb-2">€{{ number_format($pacchetto['price'], 2, ',', '.') }}</p>
             <button
               class="create-btn inline-block px-8 py-3 bg-black text-white font-bold text-lg border-4 border-orange-500 rounded-full hover:bg-orange-500 transition loader-link"

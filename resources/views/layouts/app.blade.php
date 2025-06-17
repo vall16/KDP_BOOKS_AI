@@ -20,12 +20,12 @@
     
 
     <!-- // il body di tutte le pagine è nero  -->
-    <body class="font-sans antialiased bg-black text-white">
+    <body class="font-sans antialiased bg-black text-white" style="background-image: url('/images/sfondo.PNG')">
         
 
             @include('layouts.navigation')
 
-            <div class="pt-16"> 
+            <div class="pt-16" style="background-image: url('/images/sfondo.PNG')"> 
                 <!-- Page Heading -->
                 @isset($header)
                     <header class="bg-white dark:bg-gray-800 shadow">
