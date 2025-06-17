@@ -19,8 +19,7 @@
     <h1 class="text-4xl font-bold mb-6">Book Creation</h1>
 
     <p class="mb-6">
-      <!-- You have selected the <strong>Package: {{ $pacchetto['name'] }}</strong> <br>
-      Price: <strong>€{{ number_format($pacchetto['price'], 2, ',', '.') }}</strong> -->
+      
       You have selected the Package: <strong class="text-purple-500"> {{ $pacchetto['name'] }}</strong> <br>
 Price: <strong class="text-purple-500">€{{ number_format($pacchetto['price'], 2, ',', '.') }}</strong>
 
