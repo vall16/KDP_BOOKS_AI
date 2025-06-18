@@ -1,10 +1,12 @@
 <x-app-layout>
-<!-- <div class="bg-black min-h-screen text-white px-[100px]"> -->
-  <div class="min-h-screen text-white px-[100px] bg-cover bg-center" style="background-image: url('/images/sfondo.PNG')">
 
+  <!-- <div class="min-h-screen text-white px-[100px] bg-cover bg-center" style="background-image: url('/images/sfondo.PNG')"> -->
+<div class="min-h-screen text-white px-[100px] bg-contain bg-no-repeat bg-top"
+     style="background-image: url('/images/sfondo.PNG')">
+ 
 
   
-    <main class="py-16 px-4 bg-black text-white min-h-screen"
+    <main class="py-16 px-4 bg-black text-white min-h-screen" style="background-image: url('/images/sfondo.PNG')"
             x-data="{ selected: null }">
         <h2 class="text-3xl font-bold text-center mb-12 text-white">Choose Your Package</h2>
 
@@ -14,11 +16,7 @@
               :class="selected === '{{ $codice }}' ? 'ring ring-orange-300' : ''"
               class="package bg-black text-white border-2 border-orange-500 shadow-md rounded-lg p-6 text-center cursor-pointer transition">
             <h3 class="text-3xl font-semibold mb-4 border-b border-orange-500 pb-2">{{ $pacchetto['name'] }}</h3>
-            <!-- <ul class="mb-4 space-y-1 text-gray-300">
-              @foreach ($pacchetto['description_lines'] as $line)
-                <li class="border-b border-orange-500 pb-1">{{ $line }}</li>
-              @endforeach
-            </ul> -->
+            
             <div class="h-6"></div>
             @foreach ($pacchetto['description_lines'] as $line)
             <li class="flex items-start gap-2 text-gray-300">
