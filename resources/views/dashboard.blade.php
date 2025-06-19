@@ -5,14 +5,10 @@
                 <!-- <div class="p-6 text-white"> -->
                 <div class="p-6 text-white text-center">
 
-                    <!-- <h2 class="text-xl font-bold mb-4"> Welcome back {{ $user->name }} ({{ $user->email }}) !</h2>
-
-                    <div class="max-w-5xl mx-auto mb-4">
-                        <h3 class="text-lg font-semibold">Your books</h3>
-                    </div> -->
+                    
 
                     <div class="p-6 text-white text-center">
-                        <h2 class="text-xl font-bold mb-4"> Welcome back {{ $user->name }} ({{ $user->email }}) !</h2>
+                        <h2 class="text-3xl font-bold mb-4"> Welcome back {{ $user->name }} ({{ $user->email }}) !</h2>
                     </div>
 
                     <div class="max-w-5xl mx-auto mb-4 text-left px-6">

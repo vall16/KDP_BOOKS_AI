@@ -76,7 +76,7 @@ class StripeController extends Controller
 
     } catch (\Exception $e) {
         Log::error('Errore Stripe: ' . $e->getMessage());
-        // return redirect()->route('book.create')->withErrors('Errore durante il checkout: ' . $e->getMessage());
+        
         return redirect()->route('error')->with('message', $e->getMessage());
 
     }
