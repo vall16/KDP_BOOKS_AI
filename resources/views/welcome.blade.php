@@ -19,7 +19,13 @@
 
     <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
-                
+                <!-- <nav class="flex items-center justify-end gap-4">
+                    @auth
+                        
+                    @else
+                    
+                        
+
 
                         {{-- Registrazione disabilitata perché si usa solo login Google --}}
 
@@ -61,7 +67,6 @@
             <!-- <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row lg:h-auto"> -->
             <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row lg:h-auto items-start justify-start">
 
-                    
                 <div class="text-sm leading-relaxed flex-1 p-4 pt-2 lg:pt-0 lg:pl-4 lg:pr-16 lg:pb-6 mt-4 lg:mt-12">
 
 

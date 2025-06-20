@@ -8,7 +8,7 @@
                     
 
                     <div class="p-6 text-white text-center">
-                        <h2 class="text-3xl font-bold mb-4"> Welcome back {{ $user->name }} ({{ $user->email }}) !</h2>
+                        <h2 class="text-3xl font-bold mb-4"> Welcome back {{ $user->name }} ({{ $user->email }}) </h2>
                     </div>
 
                     <div class="max-w-5xl mx-auto mb-4 text-left px-6">
@@ -37,7 +37,7 @@
                                             <td class="px-6 py-4">{{ $book['author_name'] }}</td>
                                             <td class="px-6 py-4">{{ $book['book_language'] }}</td>
                                             <td class="px-6 py-4">
-                                                @if ($book['processed'] && $book['filename'])
+                                                <!-- @if ($book['processed'] && $book['filename'])
                                                     <a href="{{ url('/download-book/' . $book['id']) }}" target="_blank" title="Scarica PDF">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400 hover:text-red-600" viewBox="0 0 24 24" fill="currentColor">
                                                             <path d="M6 2a2 2 0 0 0-2 2v16c0 1.103.897 2 2 2h12a2 2 0 0 0 2-2V8.414A1.99 1.99 0 0 0 19.586 7L15 2.414A1.99 1.99 0 0 0 13.586 2H6zm7 1.414L18.586 9H14a1 1 0 0 1-1-1V3.414zM8 13h1.5a1.5 1.5 0 0 1 0 3H8v-3zm3 0h1v3h-1v-3zm2.5 0H15a1 1 0 0 1 0 2h-1v1h-1.5v-3z"/>
@@ -46,7 +46,18 @@
                                                 @else
                                                     <span class="text-yellow-400 font-semibold">Not Ready</span>
 
+                                                @endif -->
+
+                                                @if ($book['processed'] && $book['filename'])
+                                                    <a href="{{ url('/download-book/' . $book['id']) }}" target="_blank" title="Scarica PDF">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-400 hover:text-orange-600" viewBox="0 0 24 24" fill="currentColor">
+                                                            <path d="M6 2a2 2 0 0 0-2 2v16c0 1.103.897 2 2 2h12a2 2 0 0 0 2-2V8.414A1.99 1.99 0 0 0 19.586 7L15 2.414A1.99 1.99 0 0 0 13.586 2H6zm7 1.414L18.586 9H14a1 1 0 0 1-1-1V3.414zM8 13h1.5a1.5 1.5 0 0 1 0 3H8v-3zm3 0h1v3h-1v-3zm2.5 0H15a1 1 0 0 1 0 2h-1v1h-1.5v-3z"/>
+                                                        </svg>
+                                                    </a>
+                                                @else
+                                                    <span class="text-yellow-400 font-semibold">Not Ready</span>
                                                 @endif
+
                                             </td>
                                         </tr>
                                     @endforeach

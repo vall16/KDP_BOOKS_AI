@@ -4,7 +4,7 @@
             <p class="lead mt-4"></p>
             <p class="lead mt-4"></p>
 
-            <h1 class="text-2xl font-bold text-green-400">Payment completed successfully!!!</h1>
+            <h1 class="text-2xl font-bold text-purple-400">Payment completed successfully!!!</h1>
 
             <p class="lead mt-4">
                 Thank you for your purchase! Your book is currently being generated.
