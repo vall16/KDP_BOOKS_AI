@@ -1,6 +1,6 @@
 <x-app-layout>
 
-  <!-- <div class="min-h-screen text-white px-[100px] bg-cover bg-center" style="background-image: url('/images/sfondo.PNG')"> -->
+ 
 <div class="min-h-screen text-white px-[100px] bg-contain bg-no-repeat bg-top"
      style="background-image: url('/images/sfondo.PNG')">
  

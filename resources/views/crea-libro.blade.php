@@ -27,7 +27,6 @@ Price: <strong class="text-purple-500">€{{ number_format($pacchetto['price'], 
     </p>
 
     
-
     <form method="POST" action="{{ route('book.startCheckout') }}">
       @csrf
       <input type="hidden" name="pack" value="{{ $packCode }}">
@@ -97,10 +96,7 @@ Price: <strong class="text-purple-500">€{{ number_format($pacchetto['price'], 
       </div>
 
       <!-- Submit Button -->
-      <!-- <div class="mt-6">
-        <button type="submit" class="bg-black text-purple-500 px-6 py-2 rounded hover:bg-gray-800 transition">
-  Purchase and Generate Book
-</button> -->
+      
         <div class="mt-6">
         <button type="submit" class="bg-black text-purple-500 border border-purple-500 px-6 py-2 rounded hover:bg-gray-800 transition">
         Purchase and Generate Book

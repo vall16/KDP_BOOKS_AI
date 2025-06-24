@@ -42,6 +42,7 @@ class BookController extends Controller
             'min_words_per_chapter' => (string) $data['min_words_per_chapter'],
         ];
 
+        //chiama l' APi di generazione del libro
         $response = Http::withHeaders([
             'accept' => 'application/json',
             'Authorization' => 'Bearer ' . config('services.vibes_api.token'),
