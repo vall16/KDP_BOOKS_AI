@@ -5,8 +5,8 @@
             <p class="text-white mb-6">
                 {{ session('message') ?? 'Error unknown.' }}
             </p>
-            <a href="{{ route('book.create') }}" class="inline-block bg-white text-black px-6 py-2 rounded hover:bg-gray-300 transition">
-                Back to Create Book
+            <a href="{{ route('sell') }}" class="inline-block bg-white text-black px-6 py-2 rounded hover:bg-gray-300 transition">
+                Back to Sell Page
             </a>
         </div>
     </div>

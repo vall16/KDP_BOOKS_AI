@@ -24,7 +24,7 @@ class BookController extends Controller
         // Salva il pacchetto nella sessione attiva
         session()->put('book_data.pack', $packCode);
 
-        // return view('crea-libro', compact('pacchetto'));
+        
         return view('crea-libro', compact('pacchetto', 'packCode'));
 
     }
