@@ -36,9 +36,9 @@ Route::middleware('auth')->group(function () {
 // //questa route di call back è chiamata da google socialite
 // Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
-Route::get('/auth/google', [GoogleController::class, 'redirect2'])->name('auth.google');
+Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('auth.google');
 //questa route di call back è chiamata da google socialite
-Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback2']);
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 
 //flusso stripe...

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'KDP Books AI'),
+    'name' => env('APP_NAME', 'Easy Books AI'),
 
     /*
     |--------------------------------------------------------------------------

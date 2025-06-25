@@ -13,7 +13,7 @@ class GoogleController extends Controller
 {
 
 
-    public function redirect2(Request $request)
+    public function redirect(Request $request)
     {
         \Log::info('✳️ Entrato in GoogleController@redirect');
 
@@ -33,59 +33,59 @@ class GoogleController extends Controller
     }
 
 
-    public function redirect(Request $request)
-    {
-        \Log::info('✳️ Entrato in GoogleController@redirect');
+    // public function redirect(Request $request)
+    // {
+    //     \Log::info('✳️ Entrato in GoogleController@redirect');
 
-        $token = $request->query('token');
-        $nextAction = $request->query('next_action', 'default'); // fallback: 'default'
+    //     $token = $request->query('token');
+    //     $nextAction = $request->query('next_action', 'default'); // fallback: 'default'
 
-        if ($token) {
-            session(['google_login_token' => $token]);
-        }
+    //     if ($token) {
+    //         session(['google_login_token' => $token]);
+    //     }
 
-        session(['google_next_action' => $nextAction]);
+    //     session(['google_next_action' => $nextAction]);
 
-        return Socialite::driver('google')->redirect();
-    }
+    //     return Socialite::driver('google')->redirect();
+    // }
 
     //callback paramterizzato...
+    // public function handleGoogleCallback()
+    // {
+    //     $googleUser = Socialite::driver('google')->stateless()->user();
+
+    //     $user = User::firstOrCreate(
+    //         ['email' => $googleUser->getEmail()],
+    //         ['name' => $googleUser->getName()]
+    //     );
+
+    //     Auth::login($user);
+
+    //     $token = session('google_login_token');
+
+    //     Log::debug('Token in sessione dopo login:', ['token' => session('google_login_token')]);
+
+    //     $nextAction = session('google_next_action', 'default');
+
+    //     // 🔁 Switch su cosa fare dopo
+    //     switch ($nextAction) {
+    //         case 'stripe':
+    //             // return redirect()->route('stripe.checkout', ['token' => $token]);
+    //             if ($token) {
+    //                 //passo il token a STRIPE
+    //                 return redirect()->route('stripe.checkout', ['token' => $token]);
+    //             }
+    //             break;
+    //         case 'dashboard':
+    //             return redirect()->route('dashboard');
+    //         case 'login-only':
+    //             return redirect('/sell')->with('success', 'Login effettuato!');
+    //         default:
+    //             return redirect('/sell');
+    //     }
+    // }
+
     public function handleGoogleCallback()
-    {
-        $googleUser = Socialite::driver('google')->stateless()->user();
-
-        $user = User::firstOrCreate(
-            ['email' => $googleUser->getEmail()],
-            ['name' => $googleUser->getName()]
-        );
-
-        Auth::login($user);
-
-        $token = session('google_login_token');
-
-        Log::debug('Token in sessione dopo login:', ['token' => session('google_login_token')]);
-
-        $nextAction = session('google_next_action', 'default');
-
-        // 🔁 Switch su cosa fare dopo
-        switch ($nextAction) {
-            case 'stripe':
-                // return redirect()->route('stripe.checkout', ['token' => $token]);
-                if ($token) {
-                    //passo il token a STRIPE
-                    return redirect()->route('stripe.checkout', ['token' => $token]);
-                }
-                break;
-            case 'dashboard':
-                return redirect()->route('dashboard');
-            case 'login-only':
-                return redirect('/sell')->with('success', 'Login effettuato!');
-            default:
-                return redirect('/sell');
-        }
-    }
-
-    public function handleGoogleCallback2()
     {
         $googleUser = Socialite::driver('google')->stateless()->user();
 

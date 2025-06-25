@@ -31,13 +31,16 @@
             
 
             <p class="text-2xl font-bold mb-4 border-b border-orange-500 pb-2">€{{ number_format($pacchetto['price'], 2, ',', '.') }}</p>
-            <button
+
+          <button
               class="create-btn inline-block px-8 py-3 bg-black text-white font-bold text-lg border-4 border-orange-500 rounded-full hover:bg-orange-500 transition loader-link"
-              :class="selected === '{{ $codice }}' ? '' : 'opacity-50 cursor-not-allowed'"
-              :disabled="selected !== '{{ $codice }}'"
-              @click.stop="window.location.href = '/crea-libro?pack={{ $codice }}'">
+              @click.stop="
+                selected = '{{ $codice }}';
+                window.location.href = '/crea-libro?pack={{ $codice }}'
+              ">
               Create
-            </button>
+          </button>
+
 
           </div>
           @endforeach

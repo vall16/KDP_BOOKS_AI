@@ -78,8 +78,8 @@
                                 <template x-if="details">
                                     <div>
                                         <p><strong>Description:</strong> <span x-text="details.book_description"></span></p>
-                                        <p><strong>Minimum chapters:</strong> <span x-text="details.min_chapters"></span></p>
-                                        <p><strong>Minimum words per chapter:</strong> <span x-text="details.min_words_per_chapter"></span></p>
+                                        <p><strong>Maximum chapters:</strong> <span x-text="details.max_chapters"></span></p>
+                                        <p><strong>Maximum words per chapter:</strong> <span x-text="details.max_words_per_chapter"></span></p>
                                         <p><strong>Processed:</strong> <span x-text="details.processed ? 'Yes' : 'No'"></span></p>
                                         <p><strong>Ready:</strong> <span x-text="details.ready ? 'Yes' : 'No'"></span></p>
                                         <p><strong>Sent:</strong> <span x-text="details.sent ? 'Yes' : 'No'"></span></p>

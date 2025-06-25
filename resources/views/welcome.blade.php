@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>KDP Books AI</title>
+        <title>Easy Books AI</title>
 
 
         <!-- Fonts -->
@@ -33,7 +33,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M6 4v16c0 .55.45 1 1 1s1-.45 1-1V5h11V4H6zm3 4v12c0 .55.45 1 1 1s1-.45 1-1V8H9zm4 4v8c0 .55.45 1 1 1s1-.45 1-1v-8h-2zm4 4v4c0 .55.45 1 1 1s1-.45 1-1v-4h-2z"/>
                         </svg>
-                        KDP BOOKS AI
+                        EASY BOOKS AI
                     </div>
 
                     @auth
@@ -75,7 +75,7 @@
                         </span>
                         <span class="block">
                             With the power of <span class="font-semibold text-purple-400">generative AI</span>, 
-                            <strong class="text-white">KDP Books AI</strong> helps you turn your raw ideas into polished, 
+                            <strong class="text-white">Easy Books AI</strong> helps you turn your raw ideas into polished, 
                             ready-to-publish books on <span class="font-semibold text-purple-400">Amazon KDP</span>.
                         </span>
                         <br class="hidden md:block">

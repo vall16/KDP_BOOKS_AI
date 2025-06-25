@@ -38,8 +38,8 @@ class BookController extends Controller
             'book_title' => $data['book_title'],
             'book_description' => $data['book_description'],
             'book_language' => $data['book_language'],
-            'min_chapters' => (string) $data['min_chapters'],
-            'min_words_per_chapter' => (string) $data['min_words_per_chapter'],
+            'max_chapters' => (string) $data['max_chapters'],
+            'max_words_per_chapter' => (string) $data['max_words_per_chapter'],
         ];
 
         //chiama l' APi di generazione del libro
@@ -60,8 +60,8 @@ class BookController extends Controller
             'book_title' => 'required|string|max:255',
             'book_description' => 'required|string',
             'book_language' => 'required|string',
-            'min_chapters' => 'required|integer|min:1',
-            'min_words_per_chapter' => 'required|integer|min:1',
+            'max_chapters' => 'required|integer|min:1',
+            'max_words_per_chapter' => 'required|integer|min:1',
         ]);
 
         $response = $this->generateBook($request->all());
@@ -105,8 +105,8 @@ class BookController extends Controller
             'book_title' => 'required|string',
             'book_description' => 'required|string',
             'book_language' => 'required|string',
-            'min_chapters' => 'required|integer|min:1',
-            'min_words_per_chapter' => 'required|integer|min:1',
+            'max_chapters' => 'required|integer|min:1',
+            'max_words_per_chapter' => 'required|integer|min:1',
             'pack' => 'required|string|in:base,plus,premium',
         ]);
 
