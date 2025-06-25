@@ -32,7 +32,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}" class="flex items-center gap-2 text-white text-2xl font-extrabold">
-                        <img src="{{ asset('images/easybookai_logo.png') }}" alt="EasyBookAI Logo" class="h-10 w-auto">
+                        <img src="{{ asset('images/easybookai_logo.ico') }}" alt="EasyBookAI Logo" class="h-10 w-auto">
                         <span>EASY BOOKS AI</span>
                     </a>
                 </div>

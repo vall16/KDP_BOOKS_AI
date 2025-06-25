@@ -6,6 +6,9 @@
 
         <title>Easy Books AI</title>
 
+        <!-- ✅ Favicon -->
+        <link rel="icon" href="{{ asset('images/easybookai_logo.ico') }}" type="image/png">
+
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -29,7 +32,7 @@
                     </div> -->
 
                     <div class="flex items-center gap-2 text-white text-2xl font-extrabold">
-                        <img src="{{ asset('images/easybookai_logo.png') }}" alt="EasyBookAI Logo" class="h-10">
+                        <img src="{{ asset('images/easybookai_logo.ico') }}" alt="EasyBookAI Logo" class="h-10">
                         EASY BOOKS AI
                     </div>
 
@@ -98,7 +101,7 @@
 
                 <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg w-full lg:w-[438px] shrink-0 overflow-hidden h-72 h-full">
 
-                        <img src="{{ asset('images/landing.jpeg') }}" alt="book" class="w-full h-full object-cover block">
+                        <img src="{{ asset('images/easybookai.png') }}" alt="book" class="w-full h-full object-cover block">
                 </div>
                 <!-- Fullscreen Loader Overlay SPINNER-->
                 <div id="global-loader" class="fixed inset-0 bg-black bg-opacity-100 flex items-center justify-center z-50 hidden">

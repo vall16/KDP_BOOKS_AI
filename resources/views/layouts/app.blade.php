@@ -11,7 +11,7 @@
         <title>{{ config('app.name', 'xxx') }}</title>
 
         <!-- ✅ Favicon -->
-        <link rel="icon" href="{{ asset('images/easybookai_logo.png') }}" type="image/png">
+        <link rel="icon" href="{{ asset('images/easybookai_logo.ico') }}" type="image/png">
 
 
         <!-- Fonts -->
