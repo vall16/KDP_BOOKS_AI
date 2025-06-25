@@ -21,7 +21,6 @@
             @foreach ($pacchetto['description_lines'] as $line)
             <li class="flex items-start gap-2 text-gray-300">
                 <span class="text-orange-500">&gt;</span>
-                <!-- <span>{{ $line }}</span> -->
                 <span class="text-lg">{{ $line }}</span>
             </li>
              @endforeach 
@@ -32,15 +31,23 @@
 
             <p class="text-2xl font-bold mb-4 border-b border-orange-500 pb-2">€{{ number_format($pacchetto['price'], 2, ',', '.') }}</p>
 
-          <button
+          <!-- <button
               class="create-btn inline-block px-8 py-3 bg-black text-white font-bold text-lg border-4 border-orange-500 rounded-full hover:bg-orange-500 transition loader-link"
               @click.stop="
                 selected = '{{ $codice }}';
                 window.location.href = '/crea-libro?pack={{ $codice }}'
               ">
               Create
-          </button>
+          </button> -->
 
+          <button
+            class="create-btn inline-block px-8 py-3 bg-black text-white font-bold text-lg border-4 border-orange-500 rounded-full hover:bg-orange-500 transition loader-link"
+            @click.stop="
+              selected = '{{ $codice }}';
+              window.location.href = '{{ Auth::check() ? url('/crea-libro?pack=' . $codice) : route('auth.google') }}'
+            ">
+            Create
+          </button>
 
           </div>
           @endforeach
