@@ -20,15 +20,22 @@
             <div class="flex">
                 <!-- Logo -->
                 
-                <div class="shrink-0 flex items-center">
+                <!-- <div class="shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}" class="flex items-center gap-2 text-white text-2xl font-extrabold">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M6 4v16c0 .55.45 1 1 1s1-.45 1-1V5h11V4H6zm3 4v12c0 .55.45 1 1 1s1-.45 1-1V8H9zm4 4v8c0 .55.45 1 1 1s1-.45 1-1v-8h-2zm4 4v4c0 .55.45 1 1 1s1-.45 1-1v-4h-2z"/>
                         </svg>
                         <span>EASY BOOKS AI</span>
                     </a>
-                </div>
+                </div> -->
 
+                <!-- Logo -->
+                <div class="shrink-0 flex items-center">
+                    <a href="{{ route('welcome') }}" class="flex items-center gap-2 text-white text-2xl font-extrabold">
+                        <img src="{{ asset('images/easybookai_logo.png') }}" alt="EasyBookAI Logo" class="h-10 w-auto">
+                        <span>EASY BOOKS AI</span>
+                    </a>
+                </div>
                 
 
                 <!-- Navigation Links ... se si è sulla pagina, sono evidenziati-->
@@ -45,6 +52,14 @@
                         {{ __('Sell Page') }}
                     </x-nav-link>
                 </div>
+
+                <!-- condizioni di vendita ... -->
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('condizioni')" :active="request()->routeIs('condizioni')" class="loader-link">
+                        {{ __('Terms & Conditions') }}
+                    </x-nav-link>
+                </div>
+
                 
                 
             </div>

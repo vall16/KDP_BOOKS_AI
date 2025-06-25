@@ -32,10 +32,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('auth.google');
-// //questa route di call back è chiamata da google socialite
-// Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-
 Route::get('/auth/google', [GoogleController::class, 'redirect'])->name('auth.google');
 //questa route di call back è chiamata da google socialite
 Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
@@ -43,6 +39,10 @@ Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallb
 
 //flusso stripe...
 Route::get('/stripe/checkout', [StripeController::class, 'checkout'])->name('stripe.checkout');
+
+// condizioni di vendita
+Route::view('/condizioni-di-vendita', 'condizioni')->name('condizioni');
+
 
 
 // Dashboard (protetta)

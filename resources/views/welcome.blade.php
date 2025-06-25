@@ -19,20 +19,17 @@
 
     <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
-                <!-- <nav class="flex items-center justify-end gap-
-                    @auth
-                        
-                    @else
-
-                        {{-- Registrazione disabilitata perché si usa solo login Google --}}
-
-                    @endauth -->
-                <!-- </nav>  -->
+                
                 <nav class="flex items-center justify-between w-full">
-                    <div class="flex items-center gap-2 text-white text-2xl font-extrabold">
+                    <!-- <div class="flex items-center gap-2 text-white text-2xl font-extrabold">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M6 4v16c0 .55.45 1 1 1s1-.45 1-1V5h11V4H6zm3 4v12c0 .55.45 1 1 1s1-.45 1-1V8H9zm4 4v8c0 .55.45 1 1 1s1-.45 1-1v-8h-2zm4 4v4c0 .55.45 1 1 1s1-.45 1-1v-4h-2z"/>
                         </svg>
+                        EASY BOOKS AI
+                    </div> -->
+
+                    <div class="flex items-center gap-2 text-white text-2xl font-extrabold">
+                        <img src="{{ asset('images/easybookai_logo.png') }}" alt="EasyBookAI Logo" class="h-10">
                         EASY BOOKS AI
                     </div>
 
