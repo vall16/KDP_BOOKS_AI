@@ -24,12 +24,7 @@
             @if (Route::has('login'))
                 
                 <nav class="flex items-center justify-between w-full">
-                    <!-- <div class="flex items-center gap-2 text-white text-2xl font-extrabold">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-500" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M6 4v16c0 .55.45 1 1 1s1-.45 1-1V5h11V4H6zm3 4v12c0 .55.45 1 1 1s1-.45 1-1V8H9zm4 4v8c0 .55.45 1 1 1s1-.45 1-1v-8h-2zm4 4v4c0 .55.45 1 1 1s1-.45 1-1v-4h-2z"/>
-                        </svg>
-                        EASY BOOKS AI
-                    </div> -->
+                    
 
                     <div class="flex items-center gap-2 text-white text-2xl font-extrabold">
                         <img src="{{ asset('images/easybookai_logo.ico') }}" alt="EasyBookAI Logo" class="h-10">
@@ -37,12 +32,42 @@
                     </div>
 
                     @auth
-                        <a
+                        <!-- <a
                             href="{{ url('/dashboard') }}"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Dashboard
-                        </a>
+                        </a> -->
+                            <x-dropdown align="right" width="48">
+        <x-slot name="trigger">
+            <button class="inline-flex items-center px-3 py-2 border border-purple-500 text-sm leading-4 font-medium rounded-md text-white bg-black hover:bg-gray-900 hover:text-purple-400 focus:outline-none transition ease-in-out duration-150">
+                <div>{{ Auth::user()->name }}</div>
+                <div class="ms-1">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+            </button>
+        </x-slot>
+
+        <x-slot name="content">
+            <x-dropdown-link :href="route('profile.edit')">
+                {{ __('Profile') }}
+            </x-dropdown-link>
+
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <x-dropdown-link :href="route('logout')"
+                    onclick="event.preventDefault(); this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </x-dropdown-link>
+            </form>
+        </x-slot>
+    </x-dropdown>
+
+                        
+
+                        
                     @else
                         <a href="{{ route('auth.google', ['next_action' => 'login-only']) }}"
                             class="loader-link inline-flex items-center px-4 py-2 bg-black text-white border border-purple-500 rounded shadow hover:bg-purple-800 hover:text-white transition-colors duration-200">
