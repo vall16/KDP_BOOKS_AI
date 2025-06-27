@@ -245,6 +245,58 @@ class BookController extends Controller
     //     }
     // }
 
+    // public function complete2(Request $request)
+    // {
+    //     $token = $request->query('token');
+
+    //     Log::info("COMPLETE.Token ricevuto: $token");
+    //     Log::info("COMPLETE.Esiste in cache: ", ['exists' => cache()->has("book_data_$token")]);
+
+    //     if (!$token) {
+    //         Log::warning('Token mancante nella richiesta di completamento Stripe');
+    //         return redirect()->route('error')->with('message', '⚠️ Token mancante');
+            
+    //     }
+
+    //     $bookData = cache("book_data_$token");
+
+    //     if (!$bookData) {
+    //         Log::warning("Dati libro non trovati o cache scaduta per token: $token");
+    //         return redirect()->route('error')->with('message', '⚠️ Sessione scaduta o dati non trovati.');
+            
+    //     }
+
+    //     Log::info('Token ricevuto da Stripe:', ['token' => $token]);
+    //     Log::debug('Dati recuperati dalla cache per generazione libro:', $bookData);
+
+    //     // Simuliamo una richiesta HTTP con i dati dalla cache
+    //     $generateRequest = new Request($bookData);
+
+    //     try {
+    //         Log::info('Inizio chiamata a processGeneration()');
+            
+    //         $this->processGeneration($bookData);
+
+    //         cache()->forget("book_data_$token");
+    //         Log::info('Cache rimossa per token: ' . $token);
+
+    //         return view('bookscomplete')->with('success', '✅ Libro generato con successo!');
+    //     } catch (\Exception $e) {
+    //         Log::error('Errore durante la generazione del libro: ' . $e->getMessage(), [
+    //             'trace' => $e->getTraceAsString(),
+    //             'token' => $token
+    //         ]);
+
+            
+    //         return redirect()->route('error')->with('message',
+    // '❌ Something went wrong while generating your book. ' .
+    // "But don't worry — your payment was successful, and we're working on it. " .
+    // '(Technical details: ' . $e->getMessage() . ')'
+
+
+    //     }
+    // }
+
     public function complete2(Request $request)
     {
         $token = $request->query('token');
@@ -255,7 +307,6 @@ class BookController extends Controller
         if (!$token) {
             Log::warning('Token mancante nella richiesta di completamento Stripe');
             return redirect()->route('error')->with('message', '⚠️ Token mancante');
-            
         }
 
         $bookData = cache("book_data_$token");
@@ -263,18 +314,14 @@ class BookController extends Controller
         if (!$bookData) {
             Log::warning("Dati libro non trovati o cache scaduta per token: $token");
             return redirect()->route('error')->with('message', '⚠️ Sessione scaduta o dati non trovati.');
-            
         }
 
         Log::info('Token ricevuto da Stripe:', ['token' => $token]);
         Log::debug('Dati recuperati dalla cache per generazione libro:', $bookData);
 
-        // Simuliamo una richiesta HTTP con i dati dalla cache
-        $generateRequest = new Request($bookData);
-
         try {
             Log::info('Inizio chiamata a processGeneration()');
-            
+
             $this->processGeneration($bookData);
 
             cache()->forget("book_data_$token");
@@ -287,11 +334,15 @@ class BookController extends Controller
                 'token' => $token
             ]);
 
-            // return redirect()->route('error')->with('message', '❌ Errore nella generazione del libro: ' . $e->getMessage());
-            return redirect()->route('error')->with('message', '❌ An error occurred while generating the book: ' . $e->getMessage());
+            $message  = "❌ Something went wrong while generating your book.\n";
+            $message .= "But don't worry — your payment was successful, and we're working on it.\n";
+            $message .= 'Technical details: ' . $e->getMessage();
 
+
+            return redirect()->route('error')->with('message', $message);
         }
     }
+
 
 
 }
