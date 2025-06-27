@@ -22,7 +22,7 @@ Route::view('/error', 'error')->name('error');
 
 Route::get('/crea-libro', [BookController::class, 'create'])->name('book.create');
 //generazione del libro da BE
-Route::post('/genera-libro', [BookController::class, 'generate'])->name('book.generate');
+// Route::post('/genera-libro', [BookController::class, 'generate'])->name('book.generate');
 
 
 Route::middleware('auth')->group(function () {
@@ -54,7 +54,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
 Route::post('/book/start-checkout', [BookController::class, 'startCheckout'])->name('book.startCheckout');
-Route::get('/book/complete', [BookController::class, 'complete'])->name('book.complete');
+// Route::get('/book/complete', [BookController::class, 'complete'])->name('book.complete');
+
+Route::get('/book/complete', [BookController::class, 'complete2'])->name('book.complete2');
 // errore nel pagamento
 Route::get('/book/cancel', function () {
     return redirect()->route('book.create')->withErrors('Pagamento annullato.');

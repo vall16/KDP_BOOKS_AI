@@ -66,7 +66,8 @@ class StripeController extends Controller
             'mode' => 'payment',
 
             //se ha successo passo il token
-            'success_url' => route('book.complete', ['token' => $request->query('token')]),
+            // 'success_url' => route('book.complete', ['token' => $request->query('token')]),
+            'success_url' => route('book.complete2', ['token' => $request->query('token')]),
 
              // se non ha successo, cambio rotta   
             'cancel_url' => route('book.cancel'),
