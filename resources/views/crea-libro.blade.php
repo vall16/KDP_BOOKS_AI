@@ -85,16 +85,16 @@ Price: <strong class="text-purple-500">€{{ number_format($pacchetto['price'], 
 
         <!-- Max Chapters -->
         <div>
-          <label for="max_chapters" class="block mb-1 font-semibold">Max. Chapters</label>
-          <input type="number" id="max_chapters" name="max_chapters" class=" input-purple w-full border border-gray-600 rounded p-2 bg-black text-white"
+          <label for="max_chapters" class="block mb-1 font-semibold">max. Chapters</label>
+          <input type="number" id="min_chapters" name="min_chapters" class=" input-purple w-full border border-gray-600 rounded p-2 bg-black text-white"
             max="{{ $pacchetto['chapters'] }}"
             value="{{ $pacchetto['chapters'] }}" required />
         </div>
 
-        <!-- Max Words per Chapter -->
+        <!-- min Words per Chapter -->
         <div>
-          <label for="max_words_per_chapter" class="block mb-1 font-semibold">Max. Words / Chapter</label>
-          <input type="number" id="max_words_per_chapter" name="max_words_per_chapter" class=" input-purple w-full border border-gray-600 rounded p-2 bg-black text-white"
+          <label for="min_words_per_chapter" class="block mb-1 font-semibold">max. Words / Chapter</label>
+          <input type="number" id="min_words_per_chapter" name="min_words_per_chapter" class=" input-purple w-full border border-gray-600 rounded p-2 bg-black text-white"
             max="{{ $pacchetto['words_per_chapter'] }}"
             value="{{ $pacchetto['words_per_chapter'] }}" required />
         </div>

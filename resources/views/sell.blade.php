@@ -31,15 +31,7 @@
 
             <p class="text-2xl font-bold mb-4 border-b border-purple-500 pb-2">€{{ number_format($pacchetto['price'], 2, ',', '.') }}</p>
 
-          <!-- <button
-              class="create-btn inline-block px-8 py-3 bg-black text-white font-bold text-lg border-4 border-purple-500 rounded-full hover:bg-purple-500 transition loader-link"
-              @click.stop="
-                selected = '{{ $codice }}';
-                window.location.href = '/crea-libro?pack={{ $codice }}'
-              ">
-              Create
-          </button> -->
-
+          
           <button
             class="create-btn inline-block px-8 py-3 bg-black text-white font-bold text-lg border-4 border-purple-500 rounded-full hover:bg-purple-500 transition loader-link"
             @click.stop="
@@ -54,6 +46,5 @@
         </div>
       </main>
   </div>
-</x-app-layout>
-
+</x-app-layout> 
 
