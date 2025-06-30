@@ -126,7 +126,7 @@
 
                 <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg w-full lg:w-[438px] shrink-0 overflow-hidden h-72 h-full">
 
-                        <img src="{{ asset('images/easybookai.png') }}" alt="book" class="w-full h-full object-cover block">
+                        <img src="{{ asset('images/book2.png') }}" alt="book" class="w-full h-full object-cover block">
                 </div>
                 <!-- Fullscreen Loader Overlay SPINNER-->
                 <div id="global-loader" class="fixed inset-0 bg-black bg-opacity-100 flex items-center justify-center z-50 hidden">
